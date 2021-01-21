@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import FoodCard from "../components/FoodCard/FoodCard";
 
 export default function Home() {
   return (
@@ -63,6 +64,7 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
+      <FoodCard/>
     </div>
   )
 }
