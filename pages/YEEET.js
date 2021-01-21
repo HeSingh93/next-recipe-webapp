@@ -1,15 +1,27 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Container, Row, Col, Image, Nav} from 'react-bootstrap';
+import styles from '../styles/Home.module.css';
 
-function Landing() {
-  return <Container>
-    <Row>
-      <Col>
-        <h1>Next.js React Bootstrap</h1>
-      </Col>
-    </Row>
-  </Container>
-}
+export default function YEET() {
 
-export default Landing;
+  return (
+    <div className={styles.bannerContainer}>
+      <div className={styles.bannerImage}>
+        <div className={styles.navContainer}>
+      <Row className="justify-content-md-center">
+        <Nav justify variant="tabs" >
+          <Nav.Item><Nav.Link className={styles.navItemText} href="/">HOME</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link className={styles.navItemText}href="/">ABOUT</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link className={styles.navItemText}href="#CONTACTS">CONTACTS</Nav.Link></Nav.Item>
+        </Nav>
+      </Row>
+      <Row className="justify-content-center p-3">
+        <div className={styles.searchBarContainer}>
+        <input className={"form-control-sm "} type="text" placeholder="Search..."/>
+        </div>
+      </Row>
+        </div>
+      </div>
+    </div>
+
+  )
+};
