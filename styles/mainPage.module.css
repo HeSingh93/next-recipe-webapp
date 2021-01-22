@@ -1,5 +1,6 @@
+
 .navContainer {
-    padding-top: 120px;
+    padding-top: 25px;
     justify-content: center;
 }
 
@@ -48,4 +49,46 @@
     background-repeat: no-repeat;
     height: 400px;
     width: 100%;
+}
+
+.logo {
+   width: 115px;
+    height: 115px;
+    color: #F15025 !important;
+}
+
+.centerAlignment {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .bannerContainer {
+    width: 100%;
+  }
+  .navContainer {
+    padding-top: 25px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bannerContainer {
+    width: 100%;
+  }
+  .navContainer {
+    padding-top: 25px;
+    justify-content: center;
+  }
+  .bannerImage {
+    filter: brightness(75%);
+    background-image: url('../public/images/3.jpg');
+    background-size: 100% 670px;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%;
+  }
+
+  .centerAlignment {
+    justify-content: center;
+  }
 }
