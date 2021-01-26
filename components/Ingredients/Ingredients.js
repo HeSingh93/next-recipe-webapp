@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, ListGroup} from "react-bootstrap";
 
-function Ingredients() {
+function Ingredients({amount, item}) {
   return (
       <Container>
         <ListGroup>

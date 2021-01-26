@@ -1,8 +1,48 @@
 import {Container, ListGroup, InputGroup} from "react-bootstrap";
-import React from "react";
+import React, {useState} from "react";
 import style from "../../styles/HowToDo.module.css"
+import axios from "axios";
 
-function HowToDo() {
+function HowToDo({instructions}) {
+  let [recipes, setRecipes] = useState([]);
+  const [recipeData, setRecipeData] = useState({});
+  const axios = require('axios');
+  const recipe = {id: [], area: [], category: [], ingredient: [], instructions: [], mealName: [], measure: []};
+
+  async function makeRequest() {
+    const config = {
+      method: 'get',
+      url: 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
+    }
+    let res = await axios(config);
+    let data = res.data;
+   // recipe.push(res.data);
+    console.log("RECIPE DATA: ", data.meals[0].idMeal);
+    console.log("AREA", data.meals[0].strArea);
+    console.log("STATUSCODE: ", res.status)
+    console.log("DATA", data)
+    console.log("I HAVE CANCER", recipe);
+    console.log ("ID IS: ", recipe.id)
+  }
+
+  makeRequest();
+
+
+  const getRecipes = () => {
+    axios
+        .get("https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772")
+        .then(response =>
+            response.data.meals.map(recipe => ({
+            id: `${recipes.idMeal}`
+
+        }))
+        )
+  }
+  console.log("RECIPES", recipes);
+  console.log("KILL ME ",recipe)
+  getRecipes();
+
+
   return (
       <Container>
         <ListGroup>

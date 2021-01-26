@@ -10,7 +10,7 @@ import HowToDo from "../HowToDo/HowToDo";
 function FoodCard({foodTitle, description, time, difficulty, ingredients}) {
   return (
       <Container>
-        <Card>
+        <Card className="p-1">
           <Row>
             <Col sm={12} md={6} xl={5}>
               <h1 className={style.header}>{foodTitle} Vegetarisk tikka masala</h1>
@@ -53,14 +53,16 @@ function FoodCard({foodTitle, description, time, difficulty, ingredients}) {
             </Col>
           </Row>
         </Card>
-        <Row>
-          <Col>
-            <Ingredients/>
-          </Col>
-          <Col>
-            <HowToDo/>
-          </Col>
-        </Row>
+        <div className="border p-2">
+          <Row>
+            <Col>
+              <Ingredients/>
+            </Col>
+            <Col>
+              <HowToDo/>
+            </Col>
+          </Row>
+        </div>
       </Container>
   )
 }
