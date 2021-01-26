@@ -94,3 +94,43 @@
     justify-content: center;
   }
 }
+
+.navFooterText {
+  font-family: -apple-system;
+  font-size: x-large;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.navFooterText:hover, .navItemText:focus {
+  filter: brightness(70%);
+}
+
+.FooterHeader {
+  font-family: -apple-system;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+  filter: brightness(90%);
+}
+
+.card {
+  justify-content: center;
+  overflow-x: hidden;
+  width:50%;
+}
+
+.hermanCard {
+justify-content: center;
+  margin: auto;
+  overflow-x: hidden;
+  width:50%;
+}
+
+.hampusCard {
+  justify-content: center;
+  margin: auto;
+  overflow-x: hidden;
+  width:50%;
+}
+
+
