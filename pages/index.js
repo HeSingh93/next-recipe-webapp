@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import {Container, Row, Col, Image, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import {Container, Row, Col, Image, Nav, Navbar, NavDropdown, ListGroup} from 'react-bootstrap';
 import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
 import FoodCard from "../components/FoodCard/FoodCard";
-
+import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 export default function Home() {
   return (
       <div className={styles.indexContainer}>
@@ -27,18 +27,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <FoodCard/>
-        <footer className={styles.footer}>
-          <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo}/>
-          </a>
-        </footer>
+        <div>
+          <Row>
+            <Col>
 
+            </Col>
+            <Col md={"auto"}>
+              <ListGroup>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+              </ListGroup>
+            </Col>
+            <Col>
+
+            </Col>
+          </Row>
+        </div>
+        <footer className={styles.footer}/>
       </div>
   )
 }
