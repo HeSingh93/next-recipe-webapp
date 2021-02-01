@@ -2,16 +2,17 @@ import React, {useEffect, useState} from "react";
 import {Container, Col, Row, Image} from "react-bootstrap";
 import axios from "axios";
 
-import MainRecipePlaceHolder from "../../public/js/MainRecipePlaceholder";
-
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
-const MainRecipeFeed = ({image, title, description, ingredients}) => {
+const MainRecipeFeed = () => {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [image, setImage] = useState("");
+
   const fetchRandomRecipe = async () => {
     const {data} = await axios.get(API_URL)
     setRecipeData(data)
+    setImage(data.meals[0]?.strMealThumb)
     setLoading(false);
   }
   const displayData = () => {
@@ -20,11 +21,9 @@ const MainRecipeFeed = ({image, title, description, ingredients}) => {
     }
   }
 
-  console.log("THUMB", recipeData?.meals[0]?.strMealThumb);
-
   const displayImage = () => {
     if (!loading) {
-      return <Image src={recipeData?.meals[0]?.strMealThumb} alt="meal" />
+      return <img src={image} alt="Meal" width={50} height={50}/>
     }
   }
 
@@ -36,7 +35,7 @@ const MainRecipeFeed = ({image, title, description, ingredients}) => {
       <Container fluid={"sm"}>
         <div>
           <Row>
-            <Image>{}</Image>
+            <Image alt="" src={image} width={150} height={150}/>
             <Col sm={6}>
               <h2>{displayData()}</h2>
               <p>Laga en vegetarisk variant på den indiska klassikern chicken tikka masala! Här använder vi sojabitar
