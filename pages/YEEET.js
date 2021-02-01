@@ -3,6 +3,8 @@ import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
 import HampusProfile from "../public/js/HampusProfile";
 import HermanProfile from "../public/js/HermanProfile";
+import AppContext from "../Context/ContextIndex";
+import {useContext} from "react";
 
 export default function YEET() {
 
