@@ -4,7 +4,9 @@ import Logo from "../public/js/Logo";
 import HampusProfile from "../public/js/HampusProfile";
 import HermanProfile from "../public/js/HermanProfile";
 import AppContext from "../Context/ContextIndex";
-import {useContext} from "react";
+import React, {useContext} from "react";
+import SearchFunction from "./api/Search";
+import Search from "./api/Search";
 
 export default function YEET() {
 
@@ -35,6 +37,7 @@ export default function YEET() {
         <div>
           <Row className={styles.centerAlignment}>
             <h2 className={styles.FooterHeader}>CONTACTS</h2>
+            <SearchFunction/>
           </Row>
           <Container>
           <Row className={styles.centerAlignment}>
@@ -74,6 +77,7 @@ export default function YEET() {
             <Nav fill>
               <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
             </Nav>
+
           </Row>
         </div>
       </footer>

@@ -5,11 +5,11 @@ import AppContext from './ContextIndex';
    const ContextProvider = ({ children }) => {
 
    const [query, setQuery] = useState('');
-   const [results, setResult] = useState({});
+   const [results, setResult] = useState('');
    /*const [message, setMessage] = useState('');*/
-
+     let [searchData, setSearchData] = useState([]);
    const context = {
-     query, setQuery,results, setResult,
+     query, setQuery,results, setResult,searchData,setSearchData
    };
 
    return (

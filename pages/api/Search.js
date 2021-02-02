@@ -1,27 +1,54 @@
 import Axios from "axios";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import AppContext from "../../Context/ContextIndex";
+import {Form, Jumbotron, ListGroup, Row} from "react-bootstrap";
+import axios from "axios";
+import searchStyle from "../../styles/Search.module.css";
 
 
-async function Search (query) {
-  let {query,results,setResults,setQuery,message,setMessage, cancel} = useContext(AppContext);
-  const searchURL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+export default function Search() {
+  const [query, setQuery] = useState('');
+  let [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const focusSearch = useRef(null);
+  /*const searchURL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;*/
+
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setQuery(e.target.value);
+    const {data} = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+    setRecipes(data);
+    setLoading(false);
+    console.log("DATA",data);
+  }
 
   if(query.length > 2) {
-    await Axios.get(searchURL)
-        .then((res) => {
-          const resultNotFoundMsg = !res.data.meals.length ? 'There are no results, try again' : '';
-          console.log(res.data.meals);
-          console.log(resultNotFoundMsg);
-          results = res.data.meals;
-        })
-        .catch((err) => {
-          if (Axios.isCancel(err) || err) {
-            console.log('Failed to load');
-            console.log(err);
-          }
-        })
-    console.log(results);
+    recipes = recipes.filter((i) => {
+      return i.strMeal.match(query);
+    })
   }
+
+  return ( <div>
+        <input
+            type="text"
+            placeholder="Search..."
+            onChange={handleSearch}
+            value={query}
+        />
+        {recipes.map((meals, index) => {
+          console.log("Meal Name", strMeal);
+          console.log("MEALS", meals);
+          return (
+              <div key={index}>
+                <ul>
+                  <li>
+                    Meal Name:  {meals.strMeal}
+                  </li>
+                </ul>
+              </div>
+          );
+        })}
+  </div>
+  )
 }
-export default Search;

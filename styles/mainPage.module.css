@@ -53,8 +53,8 @@
 }
 
 .logo {
-   width: 115px;
-    height: 115px;
+   width: auto;
+    height: 200px;
     color: #F15025 !important;
 }
 
