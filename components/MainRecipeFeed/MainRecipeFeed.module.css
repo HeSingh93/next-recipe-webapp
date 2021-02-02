@@ -1,0 +1,13 @@
+
+.star {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.flex {
+    display:flex;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
