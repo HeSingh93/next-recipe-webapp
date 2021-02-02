@@ -60,24 +60,25 @@ export default function Home() {
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
               </ListGroup>
 
-              <Card class={"mx-auto border p-3"}>
+              <Card class={"mx-auto p-3 border "}>
                 <footer id={"CONTACTS"}>
                   <div>
                     <Row className={styles.centerAlignment}>
-                      <h2 className={styles.FooterHeader}>CONTACTS</h2>
+                      <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACTS</h2>
                     </Row>
+
                     <Container>
-                      <Row className={styles.centerAlignment}>
+                      <Row >
                         <Col className={styles.card}>
                           <Card class="mx-auto border p-3 " className={styles.hermanCard}>
                             <Nav fill>
-                              <div className={styles.centerAlignment}>
+                              <div className={"mr-auto"}>
                                 <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/HeSingh93">Herman Singh</Nav.Link></Nav.Item>
                               </div>
                             </Nav>
-                            <Row className={styles.card}><HermanProfile/></Row>
-                            <Card className={styles.card}>
-                              <h5 classname={styles.navFooterText}> About: </h5>
+                            <Row className={`mr-auto ${styles.card}`}><HermanProfile/></Row>
+                            <Card className={"mx-auto p-2"}>
+                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
                               <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
                                 Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
@@ -85,19 +86,19 @@ export default function Home() {
                             </Card>
                           </Card>
                         </Col>
-
-                        <Col>
+                        <Col className={styles.card}>
                           <Card class="mx-auto border p-3" className={styles.hampusCard}>
                             <Nav fill>
                               <div className={styles.centerAlignment}>
                                 <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus Nordenstein</Nav.Link></Nav.Item>
                               </div>
                             </Nav>
-                            <Row className={styles.card}><HampusProfile/></Row>
-                            <Card className={styles.card}>
-                              <Card.Text> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Ab cum dolorum eveniet excepturi incidunt nam nemo perspiciatis ratione sapiente sequi!
-                                Expedita illum minus natus nulla ut. Deleniti doloremque libero unde!
+                            <Row className={`mr-auto ${styles.card}`}><HampusProfile/></Row>
+                            <Card className={"mx-auto p-2"}>
+                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
+                              <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
+                                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
                               </Card.Text>
                             </Card>
                           </Card>

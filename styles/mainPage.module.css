@@ -6,6 +6,14 @@
     justify-content: center;
 }
 
+.FooterText {
+  font-family: -apple-system;
+  font-size: x-large;
+  justify-content: left;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
 .navItemText {
     font-family: -apple-system;
     font-size: x-large;
@@ -54,7 +62,7 @@
 
 .logo {
    width: auto;
-    height: 200px;
+    height: 220px;
     color: #F15025 !important;
 }
 
@@ -114,23 +122,24 @@
 }
 
 .card {
-  justify-content: center;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
   overflow-x: hidden;
-  width:50%;
+  width:100%;
+  padding:20px;
 }
 
 .hermanCard {
 justify-content: center;
   margin: auto;
-  overflow-x: hidden;
-  width:50%;
+  width:100%;
 }
 
 .hampusCard {
   justify-content: center;
   margin: auto;
-  overflow-x: hidden;
-  width:50%;
+  width:100%;
 }
 
 
