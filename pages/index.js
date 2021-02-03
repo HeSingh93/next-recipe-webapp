@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Container, Row, Col, Image, Nav, Navbar, NavDropdown, ListGroup, Card} from 'react-bootstrap';
+import Button, {Container, Row, Col, Image, Nav, Navbar, NavDropdown, ListGroup, Card} from 'react-bootstrap';
 import styles from '../styles/mainPage.module.css';
 import searchStyle from '../styles/Search.module.css';
 import Logo from "../public/js/Logo";
@@ -35,12 +35,10 @@ export default function Home() {
                 </Navbar>
               </Row>
               <Row className={styles.centerAlignment}>
-                <div className={searchStyle.container}>
-                  <SearchFunction/>
-                 {/* <label className={searchStyle.searchLabel} htmlFor={"search-input"}>
-                    <input id={"search-input"} value={''} onChange={queryHandler} type="text" placeholder=" Search..."/>
-                    <i className={"fa fa-search search-icon"}/>
-                  </label>*/}
+                <div >
+                  <SearchFunction className={styles.searchBar}/>
+                  {/*  <input id={"search-input"} className={styles.searchBar} type="search" placeholder=" Search..."/>
+                    <button id={"search-button"} type="submit"/>*/}
                 </div>
               </Row>
             </div>
