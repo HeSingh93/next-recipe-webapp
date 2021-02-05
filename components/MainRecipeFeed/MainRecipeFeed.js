@@ -44,7 +44,6 @@ function RatingIcon(props) {
   )
 }
 
-
 const MainRecipeFeed = () => {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -62,17 +61,17 @@ const MainRecipeFeed = () => {
     setRating(index);
     localStorage.setItem("ASDF", index);
   }
-
+  // Gör ett API anrop för att hämta hem ett slumpvalt recept för att sedan lägga in i en array.
   const fetchRandomRecipe = async () => {
     const {data} = await axios.get(API_URL)
     setRecipeData(data)
     setImage(data.meals[0]?.strMealThumb)
     setLoading(false);
-
   }
+
   const displayTitle = () => {
     if (!loading) {
-      return <h2>{recipeData?.meals[0]?.strMeal}</h2>
+      return <h2><a href={recipeData?.meals[0]?.strSource}>{recipeData?.meals[0]?.strMeal}</a></h2>
     }
   }
 
@@ -90,10 +89,9 @@ const MainRecipeFeed = () => {
 
   const linkToRecipe = () => {
     if (!loading) {
-      return <p>{recipeData?.meals[0]?.strSource}</p>
+      return <p><a href={recipeData?.meals[0]?.strSource}>{recipeData?.meals[0]?.strSource}</a></p>
     }
   }
-
 
   useEffect(() => {
     fetchRandomRecipe()
@@ -103,11 +101,18 @@ const MainRecipeFeed = () => {
       <Container fluid={"sm"}>
         <div>
           <Row xs={1} md={2}>
-            <Image class="w-100 d-block" alt="" src={image} width="100%" height="auto"/>
+            <Image class="w-100 d-block" alt="Image of meal" src={image} width="50%" height="auto"/>
             <Col sm={6}>
               <h2>{displayTitle()}</h2>
               <h5>{displayCategory()}</h5>
               <h6>{areaOfOrigin()}</h6>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim facilis quisquam ut. Aperiam
+                doloribus exercitationem illum itaque laudantium neque officia optio qui, temporibus! Cupiditate eos
+                laboriosam non possimus quasi.Alias aliquam architecto aspernatur atque dolorem dolores dolorum eligendi
+                enim est et eum facere fugiat illum, impedit ipsam iure, maxime porro provident quas tenetur totam vel
+                veritatis vero voluptatem voluptates!
+              </p>
               <p>{linkToRecipe()}</p>
             </Col>
           </Row>

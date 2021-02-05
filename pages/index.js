@@ -1,23 +1,18 @@
 import Head from 'next/head'
-import Button, {Container, Row, Col, Image, Nav, Navbar, NavDropdown, ListGroup, Card} from 'react-bootstrap';
-import styles from '../styles/mainPage.module.css';
-import searchStyle from '../styles/Search.module.css';
-import Logo from "../public/js/Logo";
-import FoodCard from "../components/FoodCard/FoodCard";
-import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import React, {useContext, useState} from "react";
-import AppContext from "../Context/ContextIndex";
-import Search from "./api/Search";
+import {Container, Row, Col, Nav, Navbar, ListGroup, Card} from 'react-bootstrap';
+import styles from '../styles/mainPage.module.css';
+import Logo from "../public/js/Logo";
+import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import SearchFunction from "./api/Search";
 import HermanProfile from "../public/js/HermanProfile";
 import HampusProfile from "../public/js/HampusProfile";
+import Category from "../components/Category/Category";
 
 export default function Home() {
   //let {query,results,setResults,setQuery,message,setMessage, cancel} = useContext(AppContext);
   const [loading, setLoading ] = useState(true);
   const [recipes, setRecipes] = useState([]);
-
-
   return (
       <div className={styles.indexContainer}>
         <div id="Banner" className={styles.bannerContainer}>
@@ -37,8 +32,6 @@ export default function Home() {
               <Row className={styles.centerAlignment}>
                 <div >
                   <SearchFunction className={styles.searchBar}/>
-                  {/*  <input id={"search-input"} className={styles.searchBar} type="search" placeholder=" Search..."/>
-                    <button id={"search-button"} type="submit"/>*/}
                 </div>
               </Row>
             </div>
@@ -47,11 +40,16 @@ export default function Home() {
 
         <div>
           <Row>
-            <Col>
-
+            <Col md={3}>
+              <Category/>
             </Col>
             <Col md={"auto"}>
+              <h3 className={styles.text}>Recommended recipes</h3>
               <ListGroup>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
