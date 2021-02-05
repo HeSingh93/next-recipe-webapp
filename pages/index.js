@@ -1,10 +1,12 @@
 import Head from 'next/head'
-import {Container, Row, Col, Image, Nav, Navbar, NavDropdown, ListGroup} from 'react-bootstrap';
+import React from "react";
+import {Row, Col, Nav, Navbar, ListGroup} from 'react-bootstrap';
 import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
-import FoodCard from "../components/FoodCard/FoodCard";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
-export default function Home() {
+import Category from "../components/Category/Category";
+
+function Home() {
   return (
       <div className={styles.indexContainer}>
         <div className={styles.bannerContainer}>
@@ -29,11 +31,16 @@ export default function Home() {
         </div>
         <div>
           <Row>
-            <Col>
-
+            <Col md={3}>
+              <Category/>
             </Col>
             <Col md={"auto"}>
+              <h3 className={styles.text}>Recommended recipes</h3>
               <ListGroup>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
                 <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
@@ -41,7 +48,6 @@ export default function Home() {
               </ListGroup>
             </Col>
             <Col>
-
             </Col>
           </Row>
         </div>
@@ -49,3 +55,5 @@ export default function Home() {
       </div>
   )
 }
+
+export default Home;

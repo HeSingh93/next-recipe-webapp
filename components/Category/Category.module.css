@@ -1,0 +1,22 @@
+.boxLeft {
+    padding-left: 10px;
+    justify-content: center;
+    align-items: center;
+    alignment: center;
+    padding-top: 2.6em;
+}
+
+.text {
+    color: black;
+    text-shadow:black;
+    text-align: center;
+}
+
+.text:hover {
+    color: #F15025;
+    cursor: pointer;
+}
+
+.accToggle {
+    background-color: #F15025;
+}
