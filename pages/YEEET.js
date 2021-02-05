@@ -1,4 +1,4 @@
-import {Container, Row, Col,Card, Image, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import {Container, Row, Col, Card, Image, Nav, Navbar, NavDropdown, ListGroup} from 'react-bootstrap';
 import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
 import HampusProfile from "../public/js/HampusProfile";
@@ -7,6 +7,7 @@ import AppContext from "../Context/ContextIndex";
 import React, {useContext} from "react";
 import SearchFunction from "./api/Search";
 import Search from "./api/Search";
+import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 
 export default function YEET() {
 
@@ -26,62 +27,87 @@ export default function YEET() {
           </Navbar.Collapse>
         </Navbar>
       </Row>
-      <Row className={styles.centerAlignment}>
-        <input className={styles.searchBar} type="search" placeholder=" Search..."/>
-      </Row>
+          <Row className={styles.centerAlignment}>
+            <SearchFunction className={styles.searchBar}/>
+          </Row>
         </div>
     </div>
     </div>
-        <Card class={"mx-auto w-100"}>
-      <footer id={"CONTACTS"}>
         <div>
-          <Row className={styles.centerAlignment}>
-            <h2 className={styles.FooterHeader}>CONTACTS</h2>
-            <SearchFunction/>
-          </Row>
-          <Container>
-          <Row className={styles.centerAlignment}>
-              <Col className={styles.card}>
-                <Card className={styles.hermanCard}>
-                <Nav fill>
-                  <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/HeSingh93">Herman Singh</Nav.Link></Nav.Item>
-                </Nav>
-                <Row className={styles.card}><HermanProfile/></Row>
-                <Card className={styles.card}>
-                <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
-                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
-              </Card.Text>
-                </Card>
-                </Card>
-              </Col>
+          <Row>
+            <Col>
 
-              <Col>
-                <Card className={styles.hampusCard}>
-                <Nav fill>
-                  <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus Nordenstein</Nav.Link></Nav.Item>
-                </Nav>
-                <Row className={styles.card}><HampusProfile/></Row>
-                <Card className={styles.card}>
-                <Card.Text> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Ab cum dolorum eveniet excepturi incidunt nam nemo perspiciatis ratione sapiente sequi!
-                  Expedita illum minus natus nulla ut. Deleniti doloremque libero unde!
-                </Card.Text>
+            </Col>
+            <Col md={"auto"}>
+              <ListGroup>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+                <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+              </ListGroup>
+
+              <Card class={"mx-auto p-3 border "}>
+                <footer id={"CONTACTS"}>
+                  <div>
+                    <Row className={styles.centerAlignment}>
+                      <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACTS</h2>
+                    </Row>
+
+                    <Container>
+                      <Row >
+                        <Col className={styles.card}>
+                          <Card class="mx-auto border p-3 " className={styles.hermanCard}>
+                            <Nav fill>
+                              <div className={"mr-auto"}>
+                                <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/HeSingh93">Herman Singh</Nav.Link></Nav.Item>
+                              </div>
+                            </Nav>
+                            <Row className={`mr-auto ${styles.card}`}><HermanProfile/></Row>
+                            <Card className={"mx-auto p-2"}>
+                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
+                              <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
+                                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
+                              </Card.Text>
+                            </Card>
+                          </Card>
+                        </Col>
+                        <Col className={styles.card}>
+                          <Card class="mx-auto border p-3" className={styles.hampusCard}>
+                            <Nav fill>
+                              <div className={styles.centerAlignment}>
+                                <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus Nordenstein</Nav.Link></Nav.Item>
+                              </div>
+                            </Nav>
+                            <Row className={`mr-auto ${styles.card}`}><HampusProfile/></Row>
+                            <Card className={"mx-auto p-2"}>
+                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
+                              <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
+                                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
+                              </Card.Text>
+                            </Card>
+                          </Card>
+                        </Col>
+                      </Row>
+                    </Container>
+
+                    <Row className={styles.centerAlignment}>
+                      <Nav fill>
+                        <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
+                      </Nav>
+
+                    </Row>
+                  </div>
+                </footer>
               </Card>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-          
-          <Row className={styles.centerAlignment}>
-            <Nav fill>
-              <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
-            </Nav>
+            </Col>
+            <Col>
+            </Col>
 
           </Row>
         </div>
-      </footer>
-        </Card>
+        <footer className={styles.footer}/>
       </div>
   )
 };

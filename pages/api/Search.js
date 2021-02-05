@@ -1,9 +1,10 @@
-import Axios from "axios";
+
 import React, {useContext, useEffect, useRef, useState} from "react";
-import AppContext from "../../Context/ContextIndex";
-import {Form, Jumbotron, ListGroup, Row} from "react-bootstrap";
 import axios from "axios";
-import searchStyle from "../../styles/Search.module.css";
+import styles from '../../styles/mainPage.module.css'
+import {IoSearchCircle} from "react-icons/io5";
+import {ImSearch} from "react-icons/im";
+import {Nav,Row} from "react-bootstrap";
 
 
 export default function Search() {
@@ -25,7 +26,6 @@ export default function Search() {
     }
   }
 
-
   const searchMap = () => {
     recipes.map((meals, index) => {
       console.log("Meal Name", strMeal);
@@ -43,12 +43,17 @@ export default function Search() {
   }
 
   return ( <div>
-        <input
-            type="text"
-            placeholder="Search..."
-            onChange={handleSearch}
-            value={query}
-        />
+        <label >
+          <Row className={styles.searchBarContainer}>
+            <input className={styles.searchBar}
+                   type="text"
+                   placeholder="Search..."
+                   onChange={handleSearch}
+                   value={query}
+            />
+            <Nav.Link  href="/YEEET"> <ImSearch size={30} className={styles.searchBarIcon} /> </Nav.Link>
+          </Row>
+        </label>
         {searchMap}
   </div>
   )
