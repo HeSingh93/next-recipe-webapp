@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
-import {Col, Image, Row} from "react-bootstrap";
+import {Row, Card} from "react-bootstrap";
+import styles from '../../styles/Categories.module.css'
+
+
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef'
 
@@ -9,15 +12,16 @@ const Beef = () => {
   const [filterData, setFilterData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchSpecificBeef = async () => {
+
+  const fetchSpecificCategory = async () => {
     const {data} = await axios.get(API_URL);
     setFilterData(data);
     setLoading(false);
-    console.log("BEEF RECIPES", data)
   }
 
+
   useEffect(() => {
-    fetchSpecificBeef()
+    fetchSpecificCategory()
   }, []);
 
 
@@ -25,48 +29,35 @@ const Beef = () => {
     if (!loading) {
       return (
           <div>
-            <Row>
-              <Col>
-                {filterData.meals?.map(title =>
-                    <h4 key={title}>{title.strMeal}</h4>)}
-              </Col>
-              <Col>
-                {filterData.meals?.map(thumbnail =>
-                    <Image key={thumbnail} src={thumbnail.strMealThumb} width={"40px"} height={"40px"}/>)}
-              </Col>
-            </Row>
+            {filterData.meals?.map(meal =>
+                <Row>
+                  <Card>
+                    <Card.Header className={styles.card} key={meal}><a href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
+                    <Card.Body className={styles.cardBody}>
+                      <Card.Img className={styles.cardImg}
+                                key={meal}
+                                src={meal.strMealThumb}
+                                alt={"Beef food image"}/>
+                      <Card.Text className={styles.cardText}>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis distinctio dolores eius
+                        eligendi explicabo fugit, illo laboriosam odio, pariatur quae rerum voluptas voluptates!
+                        Blanditiis deserunt expedita libero nesciunt omnis.Aspernatur consectetur expedita facere fugit
+                        nesciunt odio quos. Adipisci commodi, exercitationem fugiat incidunt ipsa iure maiores nobis
+                        quam
+                        suscipit vel. Accusantium ad assumenda delectus eaque hic, id placeat similique totam.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Row>
+            )}
           </div>
       )
     }
   }
 
-  const displayTitle = () => {
-    if (!loading) {
-      return (
-          <div>
-            {filterData.meals?.map(title =>
-                <h4 key={title}>{title.strMeal}</h4>)}
-          </div>
-      )
-    }
-  }
-
-  const id = filterData.meals?.map(id => ({id: id.idMeal}))
-  console.log("RESULT",id)
-
-  const displayThumbnail = () => {
-    if (!loading) {
-      return (
-          <div>
-            {filterData.meals?.map(thumbnail =>
-                <Image key={thumbnail} src={thumbnail.strMealThumb} width={"40px"} height={"40px"}/>)}
-          </div>
-      )
-    }
-  }
 
   return (
-      <RecipeCategory title={displayTitle()} thumbnail={displayThumbnail()} id={id}/>
+      <RecipeCategory category={displayMeal()}/>
   )
 }
 

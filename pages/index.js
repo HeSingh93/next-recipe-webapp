@@ -41,7 +41,6 @@ export default function Home() {
         <Category/>
       </Col>
       <Col md={"auto"}>
-        <h3 className={styles.text}>Recommended recipes</h3>
         <ListGroup>
           <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
           <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>

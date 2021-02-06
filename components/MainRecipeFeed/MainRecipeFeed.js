@@ -101,11 +101,27 @@ const MainRecipeFeed = () => {
       <Container fluid={"sm"}>
         <div>
           <Row xs={1} md={2}>
-            <Image class="w-100 d-block" alt="Image of meal" src={image} width="50%" height="auto"/>
+            <Col md={"auto"}>
+              <Image className={style.image} alt="Image of meal" src={image}/>
+            </Col>
             <Col sm={6}>
               <h2>{displayTitle()}</h2>
               <h5>{displayCategory()}</h5>
               <h6>{areaOfOrigin()}</h6>
+              <div className="d-flex">
+                {[1, 2, 3, 4, 5].map((index) => {
+                  return (
+                      <RatingIcon
+                          index={index}
+                          rating={rating}
+                          hoverRating={hoverRating}
+                          onMouseEnter={onMouseEnter}
+                          onMouseLeave={onMouseleave}
+                          onSaveRating={onSaveRating}
+                      />
+                  )
+                })}
+              </div>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim facilis quisquam ut. Aperiam
                 doloribus exercitationem illum itaque laudantium neque officia optio qui, temporibus! Cupiditate eos
@@ -113,23 +129,8 @@ const MainRecipeFeed = () => {
                 enim est et eum facere fugiat illum, impedit ipsam iure, maxime porro provident quas tenetur totam vel
                 veritatis vero voluptatem voluptates!
               </p>
-              <p>{linkToRecipe()}</p>
             </Col>
           </Row>
-          <div class="d-flex">
-            {[1, 2, 3, 4, 5].map((index) => {
-              return (
-                  <RatingIcon
-                      index={index}
-                      rating={rating}
-                      hoverRating={hoverRating}
-                      onMouseEnter={onMouseEnter}
-                      onMouseLeave={onMouseleave}
-                      onSaveRating={onSaveRating}
-                  />
-              )
-            })}
-          </div>
         </div>
       </Container>
   )

@@ -1,30 +1,51 @@
 import React, {useEffect, useState} from "react";
-import {Container, Row, Col, Image} from "react-bootstrap";
-import axios from "axios";
+import {Row, Navbar, Nav, Container, Card, Col} from "react-bootstrap";
+import styles from '../../styles/mainPage.module.css'
+import Logo from "../../public/js/Logo";
+import SearchFunction from "../../pages/api/Search";
+import Category from "../Category/Category";
 
-const RecipeCategory = ({category, id}) => {
- /*
-  console.log ("ID FROM BEEF", id)
-  console.log ("ONE BEEF", id[0].id)
-  const [mealData, setMealData] = useState([]);
-  const fetchMealById = async () => {
-    const {data} = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-    setMealData(data)
-    console.log("RESPONSE",data)
-  }
-
-  useEffect(() => {
-    fetchMealById()
-  }, [])
-*/
+const RecipeCategory = ({category}) => {
   return (
-      <Container>
-        <Col>
-          {category}
-        </Col>
-      </Container>
+      <div className={styles.indexContainer}>
+        <div className={styles.indexContainer}>
+          <div id="Banner" className={styles.bannerContainer}>
+            <div className={styles.bannerImage}>
+              <div className={styles.navContainer}>
+                <Row className={styles.centerAlignment}>
+                  <Logo/>
+                </Row>
+                <Row className={styles.centerAlignment}>
+                  <Navbar collapseOnSelect expand={"md | lg | xl"}>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav.Link className={styles.navItemText} href="/">HOME</Nav.Link>
+                      <Nav.Link className={styles.navItemText} href="/">ABOUT</Nav.Link>
+                      <Nav.Link className={styles.navItemText} href="#CONTACTS">CONTACTS</Nav.Link>
+                    </Navbar.Collapse>
+                  </Navbar>
+                </Row>
+                <Row className={styles.centerAlignment}>
+                  <SearchFunction classname={styles.searchBar}/>
+                </Row>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Row className={'center'}>
+          <Col xs={2}>
+            <Category/>
+          </Col>
+          <Col md={"auto"}>
+            <Container className={styles.botContainer}>
+              {category}
+            </Container>
+          </Col>
+          <Col xs={2}>
+          </Col>
+        </Row>
+      </div>
   )
 }
-
 export default RecipeCategory;
 
