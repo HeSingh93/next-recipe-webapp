@@ -1,13 +1,11 @@
-
 import React, {useContext} from "react";
 import axios from "axios";
 import styles from '../../styles/mainPage.module.css'
 import {Row} from "react-bootstrap";
-
 import AppContext from "../../Context/ContextIndex";
 
 export default function Search() {
-  let {recipes, setRecipes,query, setQuery} = useContext(AppContext);
+  let {setRecipes,query, setQuery} = useContext(AppContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();

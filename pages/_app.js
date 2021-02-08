@@ -10,5 +10,4 @@ function MyApp({ Component, pageProps }) {
       </ContextProvider>
       )
 }
-
 export default MyApp;

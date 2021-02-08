@@ -2,6 +2,17 @@
     overflow-x: hidden;
 }
 
+.indexTextTitle {
+    font-family: -apple-system, serif;
+    font-size: 40px;
+    justify-content: center;
+
+    padding: 5px;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+
 .navContainer {
     padding-top: 25px;
     justify-content: center;
@@ -32,6 +43,24 @@
 
 .navItemText:hover, .navItemText:focus {
     filter: brightness(70%);
+}
+
+.navFooterText {
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.navFooterText:hover, .navItemText:focus {
+    filter: brightness(70%);
+}
+
+.FooterHeader {
+    font-family: -apple-system, serif;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+    filter: brightness(90%);
 }
 
 .bannerContainer {
@@ -145,24 +174,6 @@
     .centerAlignment {
         justify-content: center;
     }
-}
-
-.navFooterText {
-    font-family: -apple-system, serif;
-    font-size: x-large;
-    color: dimgrey !important;
-    backdrop-filter: drop-shadow(10px 10px 2px black);
-}
-
-.navFooterText:hover, .navItemText:focus {
-    filter: brightness(70%);
-}
-
-.FooterHeader {
-    font-family: -apple-system, serif;
-    color: dimgrey !important;
-    backdrop-filter: drop-shadow(10px 10px 2px black);
-    filter: brightness(90%);
 }
 
 .card {

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Row, Navbar, Nav, Container, Card, Col} from "react-bootstrap";
 import styles from '../../styles/mainPage.module.css'
 import Logo from "../../public/js/Logo";
-import SearchFunction from "../../pages/api/Search";
 import Category from "../Category/Category";
 
 const RecipeCategory = ({category}) => {
@@ -26,7 +25,6 @@ const RecipeCategory = ({category}) => {
                   </Navbar>
                 </Row>
                 <Row className={styles.centerAlignment}>
-                  <SearchFunction classname={styles.searchBar}/>
                 </Row>
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Container, Col, Row, Image} from "react-bootstrap";
 import axios from "axios";
 import style from './MainRecipeFeed.module.css';
+import styles from "../../styles/mainPage.module.css";
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
@@ -71,7 +72,7 @@ const MainRecipeFeed = () => {
 
   const displayTitle = () => {
     if (!loading) {
-      return <h2><a href={recipeData?.meals[0]?.strSource}>{recipeData?.meals[0]?.strMeal}</a></h2>
+      return <a className={styles.navFooterText} href={recipeData?.meals[0]?.strSource}><h2>{recipeData?.meals[0]?.strMeal}</h2></a>
     }
   }
 

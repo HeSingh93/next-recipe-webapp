@@ -14,17 +14,21 @@ export default function Home() {
   let {query} = useContext(AppContext);
 
   const mealList = () => {
-    if (query > 1) {
-     return ( <ListGroup>
+    if (query.length > 1) {
+     return (
+         <ListGroup>
         <ListGroup.Item>
+          <h1 className={`${styles.indexTextTitle}`}>Searched recipes: </h1>
           <SearchItem/>
         </ListGroup.Item>
-      </ListGroup> )
+      </ListGroup>
+     )
     } else {
       return (
           <ListGroup>
-            <ListGroup.Item><SearchItem/></ListGroup.Item>
-            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item>
+              <h1 className={` ${styles.indexTextTitle}`}>Recommended recipes: </h1>
+              <MainRecipeFeed/></ListGroup.Item>
             <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
             <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
             <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
