@@ -1,13 +1,29 @@
 import React from "react";
-import {Container, ListGroup} from "react-bootstrap";
+import {Container, ListGroup, ListGroupItem} from "react-bootstrap";
+import style from './Ingredients.module.css'
 
-function Ingredients({item}) {
+function Ingredients({ingredients, measure}) {
   return (
       <Container>
-        <ListGroup>
-          <h4><strong>Ingredienser</strong></h4>
-          <ListGroup.Item><strong>4 port</strong> ris</ListGroup.Item>
-        </ListGroup>
+        <h4 className="text-center"><strong>Ingredienser</strong></h4>
+        <div className={style.container}>
+          <ListGroup>
+            <ListGroupItem><h4><strong>Amount</strong></h4></ListGroupItem>
+            {measure.map(amount =>
+                <ListGroupItem>
+                  {amount}
+                </ListGroupItem>
+            )}
+          </ListGroup>
+          <ListGroup>
+            <ListGroupItem><h4><strong>Ingredient</strong></h4></ListGroupItem>
+            {ingredients.map(ingredient =>
+                <ListGroupItem>
+                  {ingredient}
+                </ListGroupItem>
+            )}
+          </ListGroup>
+        </div>
       </Container>
   )
 }

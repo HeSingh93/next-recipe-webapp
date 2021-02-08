@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {Row, Navbar, Nav, Container, Card, Col} from "react-bootstrap";
+import React from "react";
+import {Row, Navbar, Nav, Container, Col} from "react-bootstrap";
 import styles from '../../styles/mainPage.module.css'
 import Logo from "../../public/js/Logo";
 import Category from "../Category/Category";

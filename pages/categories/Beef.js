@@ -4,8 +4,6 @@ import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
 import {Row, Card} from "react-bootstrap";
 import styles from '../../styles/Categories.module.css'
 
-
-
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef'
 
 const Beef = () => {

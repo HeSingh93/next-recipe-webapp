@@ -11,22 +11,23 @@ import axios from "axios";
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [image, setImage] = useState("");
   const router = useRouter();
-  const stringId = router.query.id
-  console.log(stringId)
-  const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
+  console.log("Id: ", router.query.id)
+
+  const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=52874`
 
   const fetchRecipeById = async () => {
+    console.log("Making call to: ", `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`)
     const {data} = await axios.get(API_URL);
     setRecipeData(data)
-    setImage(data.meals[0]?.strMealThumb);
     setLoading(false);
+    console.log("Returned with data", data)
   }
+
 
   const displayTitle = () => {
     if (!loading) {
-      return <h1><strong>{recipeData?.meals[0].strMeal}</strong></h1>
+      return <h1 className={style.header}>{recipeData?.meals[0].strMeal}</h1>
     }
   }
 
@@ -36,19 +37,93 @@ function Recipe() {
     }
   }
 
+  const displayImage = () => {
+    if (!loading) {
+      return <Image className={style.image} fluid alt="image of meal" src={recipeData.meals[0].strMealThumb}/>
+    }
+  }
+
   useEffect(() => {
     fetchRecipeById()
   }, []);
 
-  console.log("RECIPE DATA", recipeData)
+  /*
+  const array = recipeData.meals?.map(ingredients => ({ value: ingredients.strIngredient1
+  }));
+  */
+  // const arr = [];
+  /*
+  recipeData.meals?.forEach(ingredient => {
+    console.log("Hej hopp", ingredient)
+  });
+  console.log("Tja!", recipeData.meals[0]);
 
+  if (recipeData.meals !== null) {
+    const mealObject = recipeData.meals[0]
+    for (const key in mealObject) {
+      if (key.startsWith('strIngredient')) {
+        console.log(mealObject[key]);
+      }
+    }
+  }
+  */
+  const ingredientArray = [];
+  recipeData.meals?.map(ingredients => {
+    ingredientArray.push(
+        ingredients.strIngredient1,
+        ingredients.strIngredient2,
+        ingredients.strIngredient3,
+        ingredients.strIngredient5,
+        ingredients.strIngredient6,
+        ingredients.strIngredient7,
+        ingredients.strIngredient8,
+        ingredients.strIngredient9,
+        ingredients.strIngredient10,
+        ingredients.strIngredient11,
+        ingredients.strIngredient12,
+        ingredients.strIngredient13,
+        ingredients.strIngredient14,
+        ingredients.strIngredient15,
+        ingredients.strIngredient16,
+        ingredients.strIngredient17,
+        ingredients.strIngredient18,
+        ingredients.strIngredient19,
+        ingredients.strIngredient20
+    )
+  });
+
+  const measureArray = [];
+  recipeData.meals?.map(measure => {
+    measureArray.push(
+        measure.strMeasure1,
+        measure.strMeasure2,
+        measure.strMeasure3,
+        measure.strMeasure4,
+        measure.strMeasure5,
+        measure.strMeasure6,
+        measure.strMeasure7,
+        measure.strMeasure8,
+        measure.strMeasure9,
+        measure.strMeasure10,
+        measure.strMeasure11,
+        measure.strMeasure12,
+        measure.strMeasure13,
+        measure.strMeasure14,
+        measure.strMeasure15,
+        measure.strMeasure16,
+        measure.strMeasure17,
+        measure.strMeasure18,
+        measure.strMeasure19,
+        measure.strMeasure20,
+    )
+  });
 
   return (
       <Container>
         <Card className="p-1">
           <Row>
             <Col sm={12} md={6} xl={5}>
-              <h1 className={style.header}>{displayTitle()}</h1>
+              <>{displayTitle}</>
               <Container md className={style.card}>
                 <Card class="mx-auto w-100"
                       className={style.card}>
@@ -64,7 +139,7 @@ function Recipe() {
                       </Col>
                       <Col>
                         <GoChecklist/>
-                        <h6><strong> </strong></h6>
+                        <h6><strong>Ingredienser: {ingredientArray.length}</strong></h6>
                       </Col>
                     </Row>
                   </Card.Body>
@@ -82,15 +157,15 @@ function Recipe() {
                 Eveniet iure optio tempore?
               </Card.Text>
             </Col>
-            <Col>
-              <Image className={style.image} alt="Image of meal" src={image}/>
+            <Col className="w-100 d-block pl-4">
+              <>{displayImage()}</>
             </Col>
           </Row>
         </Card>
         <div className="border p-2">
           <Row>
             <Col>
-              <Ingredients/>
+              <Ingredients ingredients={ingredientArray} measure={measureArray}/>
             </Col>
             <Col>
               <HowToDo instructions={displayInstructions()}/>
