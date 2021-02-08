@@ -2,15 +2,40 @@ import {Container, Row, Col, Nav, Navbar, ListGroup, Card} from 'react-bootstrap
 import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
-import React, {useState} from "react";
-import SearchFunction from "./api/Search";
+import React, {useContext} from "react";
+import SearchFunction from "../components/Search/Search";
 import HermanProfile from "../public/js/HermanProfile";
 import HampusProfile from "../public/js/HampusProfile";
 import Category from "../components/Category/Category";
+import SearchItem from "./SearchItem";
+import AppContext from "../Context/ContextIndex";
 
 export default function Home() {
-  const [loading, setLoading ] = useState(true);
-  const [recipes, setRecipes] = useState([]);
+  let {query} = useContext(AppContext);
+
+  const mealList = () => {
+    if (query > 1) {
+     return ( <ListGroup>
+        <ListGroup.Item>
+          <SearchItem/>
+        </ListGroup.Item>
+      </ListGroup> )
+    } else {
+      return (
+          <ListGroup>
+            <ListGroup.Item><SearchItem/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+            <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
+          </ListGroup>
+      )
+    }
+  }
 
   return (
         <div className={styles.indexContainer}>
@@ -41,16 +66,7 @@ export default function Home() {
         <Category/>
       </Col>
       <Col md={"auto"}>
-        <ListGroup>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-          <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
-        </ListGroup>
+        {mealList()}
 
         <Card class={"mx-auto p-3 border "}>
           <footer id={"CONTACTS"}>

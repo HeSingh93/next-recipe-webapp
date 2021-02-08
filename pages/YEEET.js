@@ -5,8 +5,8 @@ import HampusProfile from "../public/js/HampusProfile";
 import HermanProfile from "../public/js/HermanProfile";
 import AppContext from "../Context/ContextIndex";
 import React, {useContext} from "react";
-import SearchFunction from "./api/Search";
-import Search from "./api/Search";
+import SearchFunction from "../components/Search/Search";
+import Search from "../components/Search/Search";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 
 export default function YEET() {

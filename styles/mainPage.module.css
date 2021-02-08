@@ -76,6 +76,17 @@
     filter: brightness(70%);
 }
 
+.searchBarSuggestion {
+    list-style: none;
+    overflow: hidden;
+    margin: 9px 0 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
 .shadowOverlay {
     filter: brightness(70%);
 }
@@ -187,5 +198,4 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
-
 

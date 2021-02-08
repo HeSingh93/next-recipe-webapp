@@ -6,10 +6,11 @@ import AppContext from './ContextIndex';
 
    const [query, setQuery] = useState('');
    const [results, setResult] = useState('');
+   let [recipes, setRecipes] = useState([]);
    /*const [message, setMessage] = useState('');*/
      let [searchData, setSearchData] = useState([]);
    const context = {
-     query, setQuery,results, setResult,searchData,setSearchData
+     query, setQuery,results, setResult,searchData,setSearchData, recipes, setRecipes
    };
 
    return (
