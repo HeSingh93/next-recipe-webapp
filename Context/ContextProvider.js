@@ -7,9 +7,11 @@ import AppContext from './ContextIndex';
    const [results, setResult] = useState('');
    let [recipes, setRecipes] = useState([]);
    let [searchData, setSearchData] = useState([]);
+     let [suggestedMeal, setSuggestedMeal] = useState([]);
 
    const context = {
-     query, setQuery,results, setResult,searchData,setSearchData, recipes, setRecipes
+     query, setQuery,results, setResult,searchData,setSearchData, recipes, setRecipes,
+     suggestedMeal, setSuggestedMeal
    };
    return (
        <AppContext.Provider value={context}>

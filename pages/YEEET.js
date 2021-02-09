@@ -1,15 +1,14 @@
-import {Container, Row, Col, Card, Image, Nav, Navbar, NavDropdown, ListGroup} from 'react-bootstrap';
+import {Container, Row, Col, Card, Image, Nav, Navbar, NavDropdown, ListGroup, Carousel} from 'react-bootstrap';
 import styles from '../styles/mainPage.module.css';
 import Logo from "../public/js/Logo";
-import HampusProfile from "../public/js/HampusProfile";
-import HermanProfile from "../public/js/HermanProfile";
+
 import AppContext from "../Context/ContextIndex";
 import React, {useContext} from "react";
-import SearchFunction from "../components/Search/Search";
-import Search from "../components/Search/Search";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
+import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 
 export default function YEET() {
+  let {suggestedMeal, setSuggestedMeal} = useContext(AppContext);
 
   return (
       <div>
@@ -28,7 +27,6 @@ export default function YEET() {
         </Navbar>
       </Row>
           <Row className={styles.centerAlignment}>
-            <SearchFunction className={styles.searchBar}/>
           </Row>
         </div>
     </div>
@@ -47,60 +45,37 @@ export default function YEET() {
               </ListGroup>
 
               <Card class={"mx-auto p-3 border "}>
-                <footer id={"CONTACTS"}>
+                <footer id={"SUGGESTED"}>
                   <div>
                     <Row className={styles.centerAlignment}>
-                      <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACTS</h2>
+                      <h2 className={` p-3 ${styles.FooterHeader}`}>Suggested recipes</h2>
                     </Row>
-
                     <Container>
                       <Row >
                         <Col className={styles.card}>
-                          <Card class="mx-auto border p-3 " className={styles.hermanCard}>
-                            <Nav fill>
-                              <div className={"mr-auto"}>
-                                <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/HeSingh93">Herman Singh</Nav.Link></Nav.Item>
-                              </div>
-                            </Nav>
-                            <Row className={`mr-auto ${styles.card}`}><HermanProfile/></Row>
-                            <Card className={"mx-auto p-2"}>
-                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
-                              <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
-                                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
-                              </Card.Text>
-                            </Card>
-                          </Card>
-                        </Col>
-                        <Col className={styles.card}>
-                          <Card class="mx-auto border p-3" className={styles.hampusCard}>
-                            <Nav fill>
-                              <div className={styles.centerAlignment}>
-                                <Nav.Item><Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus Nordenstein</Nav.Link></Nav.Item>
-                              </div>
-                            </Nav>
-                            <Row className={`mr-auto ${styles.card}`}><HampusProfile/></Row>
-                            <Card className={"mx-auto p-2"}>
-                              <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
-                              <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
-                                Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
-                              </Card.Text>
-                            </Card>
-                          </Card>
+                       <Carousel interval={6000}>
+                         <Carousel.Item>
+                           <SuggestedMeal/>
+                         </Carousel.Item>
+                         <Carousel.Item>
+                           <SuggestedMeal/>
+                         </Carousel.Item>
+                         <Carousel.Item>
+                           <SuggestedMeal/>
+                         </Carousel.Item>
+                       </Carousel>
                         </Col>
                       </Row>
                     </Container>
-
                     <Row className={styles.centerAlignment}>
                       <Nav fill>
                         <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
                       </Nav>
-
                     </Row>
                   </div>
                 </footer>
               </Card>
+
             </Col>
             <Col>
             </Col>

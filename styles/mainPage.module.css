@@ -6,8 +6,8 @@
     font-family: -apple-system, serif;
     font-size: 40px;
     justify-content: center;
-
     padding: 5px;
+    text-align: center;
     color: dimgrey !important;
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }

@@ -18,7 +18,7 @@ export default function Home() {
      return (
          <ListGroup>
         <ListGroup.Item>
-          <h1 className={`${styles.indexTextTitle}`}>Searched recipes: </h1>
+          <h1 className={`${styles.indexTextTitle}`}>Searched recipes </h1>
           <SearchItem/>
         </ListGroup.Item>
       </ListGroup>
@@ -27,7 +27,7 @@ export default function Home() {
       return (
           <ListGroup>
             <ListGroup.Item>
-              <h1 className={` ${styles.indexTextTitle}`}>Recommended recipes: </h1>
+              <h1 className={` ${styles.indexTextTitle}`}>Recommended recipes </h1>
               <MainRecipeFeed/></ListGroup.Item>
             <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
             <ListGroup.Item><MainRecipeFeed/></ListGroup.Item>
