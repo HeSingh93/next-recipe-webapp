@@ -1,39 +1,45 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
-import {Row, Card} from "react-bootstrap";
-import styles from '../../styles/Categories.module.css'
+import {useRouter} from "next/router";
+import {Card, Row} from "react-bootstrap";
+import styles from '../styles/Categories.module.css'
+import RecipeCategory from "../components/RecipeCategory/RecipeCategory";
 
-const API_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef'
-
-const Beef = () => {
-  const [filterData, setFilterData] = useState([]);
+const Category = () => {
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const router = useRouter();
+  let query = router.query
+  let category = "";
+  for (query in router.query) {
+    if (router.query.hasOwnProperty(query)) {
+      category = router.query[query]
+    }
+  }
+  const API_URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
 
   const fetchSpecificCategory = async () => {
     const {data} = await axios.get(API_URL);
-    setFilterData(data);
+    setFilteredData(data);
     setLoading(false);
   }
-
-  useEffect(() => {
-    fetchSpecificCategory()
-  }, []);
-
 
   const displayMeal = () => {
     if (!loading) {
       return (
           <div>
-            {filterData.meals?.map(meal =>
+            {filteredData.meals?.map(meal =>
                 <Row>
                   <Card>
-                    <Card.Header className={styles.card} key={meal}><a href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
+                    <Card.Header className={styles.card}
+                                 key={meal}><a
+                                 href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
                     <Card.Body className={styles.cardBody}>
                       <Card.Img className={styles.cardImg}
                                 key={meal}
                                 src={meal.strMealThumb}
-                                alt={"Beef food image"}/>
+                                alt={"Category food image"}/>
                       <Card.Text className={styles.cardText}>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis distinctio dolores eius
                         eligendi explicabo fugit, illo laboriosam odio, pariatur quae rerum voluptas voluptates!
@@ -51,10 +57,16 @@ const Beef = () => {
     }
   }
 
+  useEffect(() => {
+    if (router.query !== undefined) {
+      fetchSpecificCategory()
+    }
+  }, [router])
+
 
   return (
       <RecipeCategory category={displayMeal()}/>
   )
 }
 
-export default Beef;
+export default Category;

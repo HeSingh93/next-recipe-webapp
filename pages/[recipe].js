@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Row, Col, Card, Image} from 'react-bootstrap';
+import {Container, Row, Col, Card, Image, Navbar, NavLink} from 'react-bootstrap';
 import style from "../styles/FoodCard.module.css";
 import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
 import {GoChecklist} from "react-icons/go";
@@ -7,14 +7,14 @@ import Ingredients from "../components/Ingredients/Ingredients";
 import HowToDo from "../components/HowToDo/HowToDo";
 import {useRouter} from "next/router";
 import axios from "axios";
+import Logo from "../public/js/Logo";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   console.log("Id: ", router.query.id)
-
-  const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=52874`
+  const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
 
   const fetchRecipeById = async () => {
     console.log("Making call to: ", `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`)
@@ -23,7 +23,6 @@ function Recipe() {
     setLoading(false);
     console.log("Returned with data", data)
   }
-
 
   const displayTitle = () => {
     if (!loading) {
@@ -44,8 +43,9 @@ function Recipe() {
   }
 
   useEffect(() => {
+    if (router.query.id !== undefined) {
     fetchRecipeById()
-  }, []);
+  }}, [router]);
 
   /*
   const array = recipeData.meals?.map(ingredients => ({ value: ingredients.strIngredient1
@@ -92,6 +92,10 @@ function Recipe() {
     )
   });
 
+  const filteredIngredientArray = ingredientArray.filter(function (el) {
+    return el != null && el !== "";
+  })
+
   const measureArray = [];
   recipeData.meals?.map(measure => {
     measureArray.push(
@@ -118,61 +122,86 @@ function Recipe() {
     )
   });
 
+  const filteredMeasureArray = measureArray.filter(function (el) {
+    return el !== "" && el !== null;
+  })
+
   return (
-      <Container>
-        <Card className="p-1">
-          <Row>
-            <Col sm={12} md={6} xl={5}>
-              <>{displayTitle}</>
-              <Container md className={style.card}>
-                <Card class="mx-auto w-100"
-                      className={style.card}>
-                  <Card.Body class="p-1">
-                    <Row class="d-flex justify-content-center">
-                      <Col>
-                        <BsClockFill/>
-                        <h6><strong>60 min</strong></h6>
-                      </Col>
-                      <Col>
-                        <BsFillBarChartFill/>
-                        <h6><strong>Medium</strong></h6>
-                      </Col>
-                      <Col>
-                        <GoChecklist/>
-                        <h6><strong>Ingredienser: {ingredientArray.length}</strong></h6>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Container>
-              <Card.Text className={style.text}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Animi aspernatur, beatae corporis culpa delectus dolorum explicabo illo incidunt labore non
-                numquam officia praesentium
-                quidem quisquam quos recusandae repellendus vel voluptates.
-                A architecto deserunt, eos nobis quia repellendus. Cumque exercitationem explicabo facilis
-                in ipsa nam quasi
-                quibusdam voluptatibus! Adipisci assumenda consectetur, error ex labore laborum perferendis
-                similique.
-                Eveniet iure optio tempore?
-              </Card.Text>
-            </Col>
-            <Col className="w-100 d-block pl-4">
-              <>{displayImage()}</>
-            </Col>
-          </Row>
-        </Card>
-        <div className="border p-2">
-          <Row>
-            <Col>
-              <Ingredients ingredients={ingredientArray} measure={measureArray}/>
-            </Col>
-            <Col>
-              <HowToDo instructions={displayInstructions()}/>
-            </Col>
-          </Row>
+      <div>
+        <div className={style.indexContainer}>
+          <div id="Banner" className={style.bannerContainer}>
+            <div className={style.bannerImage}>
+              <div className={style.navContainer}>
+                <Row className={style.centerAlignment}><Logo/></Row>
+                <Row className={style.centerAlignment}>
+                  <Navbar collapseOnSelect expand={"md | lg | xl"}>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Collapse>
+                      <NavLink className={style.navItemText} href="/">HOME</NavLink>
+                      <NavLink className={style.navItemText} href="/">ABOUT</NavLink>
+                      <NavLink className={style.navItemText} href="#CONTACT">CONTACT</NavLink>
+                    </Navbar.Collapse>
+                  </Navbar>
+                </Row>
+              </div>
+            </div>
+          </div>
         </div>
-      </Container>
+        <Container>
+          <Card className="p-1">
+            <Row>
+              <Col sm={12} md={6} xl={5}>
+                <h1>{displayTitle()}</h1>
+                <Container md className={style.card}>
+                  <Card class="mx-auto w-100"
+                        className={style.card}>
+                    <Card.Body class="p-1">
+                      <Row class="d-flex justify-content-center">
+                        <Col>
+                          <BsClockFill/>
+                          <h6><strong>60 min</strong></h6>
+                        </Col>
+                        <Col>
+                          <BsFillBarChartFill/>
+                          <h6><strong>Medium</strong></h6>
+                        </Col>
+                        <Col>
+                          <GoChecklist/>
+                          <h6><strong>Ingredienser: {filteredIngredientArray.length}</strong></h6>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                </Container>
+                <Card.Text className={style.text}>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Animi aspernatur, beatae corporis culpa delectus dolorum explicabo illo incidunt labore non
+                  numquam officia praesentium
+                  quidem quisquam quos recusandae repellendus vel voluptates.
+                  A architecto deserunt, eos nobis quia repellendus. Cumque exercitationem explicabo facilis
+                  in ipsa nam quasi
+                  quibusdam voluptatibus! Adipisci assumenda consectetur, error ex labore laborum perferendis
+                  similique.
+                  Eveniet iure optio tempore?
+                </Card.Text>
+              </Col>
+              <Col className="w-100 d-block pl-4">
+                <>{displayImage()}</>
+              </Col>
+            </Row>
+          </Card>
+          <div className="border p-2">
+            <Row>
+              <Col>
+                <Ingredients ingredients={filteredIngredientArray} measure={filteredMeasureArray}/>
+              </Col>
+              <Col>
+                <HowToDo instructions={displayInstructions()}/>
+              </Col>
+            </Row>
+          </div>
+        </Container>
+      </div>
   )
 }
 
