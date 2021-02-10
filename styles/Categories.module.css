@@ -1,6 +1,30 @@
 .cardImg {
-    width: 200px;
-    height: 200px;
+    width: 310px;
+    height: 300px;
+}
+
+@media screen and (max-width: 800px) {
+    .cardImg {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .cardImg {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+
 }
 
 .card {
@@ -20,5 +44,6 @@
 }
 
 .cardText {
-    padding-left: 15px;
+    padding-left: 30px;
+
 }

@@ -44,8 +44,9 @@ function Recipe() {
 
   useEffect(() => {
     if (router.query.id !== undefined) {
-    fetchRecipeById()
-  }}, [router]);
+      fetchRecipeById()
+    }
+  }, [router]);
 
   /*
   const array = recipeData.meals?.map(ingredients => ({ value: ingredients.strIngredient1
@@ -168,7 +169,7 @@ function Recipe() {
                         </Col>
                         <Col>
                           <GoChecklist/>
-                          <h6><strong>Ingredienser: {filteredIngredientArray.length}</strong></h6>
+                          <h6><strong>Ingredients: {filteredIngredientArray.length}</strong></h6>
                         </Col>
                       </Row>
                     </Card.Body>
@@ -191,16 +192,16 @@ function Recipe() {
               </Col>
             </Row>
           </Card>
-          <div className="border p-2">
+          <Container className="border p-2">
             <Row>
-              <Col>
+              <Col md={"auto"}>
                 <Ingredients ingredients={filteredIngredientArray} measure={filteredMeasureArray}/>
               </Col>
               <Col>
                 <HowToDo instructions={displayInstructions()}/>
               </Col>
             </Row>
-          </div>
+          </Container>
         </Container>
       </div>
   )

@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
   <div>
-    <Row>
+    <Row noGutters={true}>
       <Col md={3}>
         <Category/>
       </Col>
@@ -76,12 +76,12 @@ export default function Home() {
           <footer id={"CONTACTS"}>
             <div>
               <Row className={styles.centerAlignment}>
-                <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACTS</h2>
+                <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACT</h2>
               </Row>
 
               <Container>
                 <Row >
-                  <Col className={styles.card}>
+                  <Col className={styles.card} sm={6}>
                     <Card class="mx-auto border p-3 " className={styles.hermanCard}>
                       <Nav fill>
                         <div className={"mr-auto"}>
@@ -98,7 +98,7 @@ export default function Home() {
                       </Card>
                     </Card>
                   </Col>
-                  <Col className={styles.card}>
+                  <Col sm={6} className={styles.card}>
                     <Card class="mx-auto border p-3" className={styles.hampusCard}>
                       <Nav fill>
                         <div className={styles.centerAlignment}>

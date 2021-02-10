@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
-import {Card, Row} from "react-bootstrap";
+import {Card, Col, Row} from "react-bootstrap";
 import styles from '../styles/Categories.module.css'
 import RecipeCategory from "../components/RecipeCategory/RecipeCategory";
 
@@ -34,20 +34,27 @@ const Category = () => {
                   <Card>
                     <Card.Header className={styles.card}
                                  key={meal}><a className={styles.card}
-                                 href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
+                                               href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
                     <Card.Body className={styles.cardBody}>
-                      <Card.Img className={styles.cardImg}
-                                key={meal}
-                                src={meal.strMealThumb}
-                                alt={"Category food image"}/>
-                      <Card.Text className={styles.cardText}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis distinctio dolores eius
-                        eligendi explicabo fugit, illo laboriosam odio, pariatur quae rerum voluptas voluptates!
-                        Blanditiis deserunt expedita libero nesciunt omnis.Aspernatur consectetur expedita facere fugit
-                        nesciunt odio quos. Adipisci commodi, exercitationem fugiat incidunt ipsa iure maiores nobis
-                        quam
-                        suscipit vel. Accusantium ad assumenda delectus eaque hic, id placeat similique totam.
-                      </Card.Text>
+                      <Row noGutters={true}>
+                        <Col md={4}>
+                          <Card.Img className={styles.cardImg}
+                                    key={meal}
+                                    src={meal.strMealThumb}
+                                    alt={"Category food image"}/>
+                        </Col>
+                        <Col>
+                          <Card.Text className={styles.cardText}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis distinctio dolores
+                            eius
+                            eligendi explicabo fugit, illo laboriosam odio, pariatur quae rerum voluptas voluptates!
+                            Blanditiis deserunt expedita libero nesciunt omnis.Aspernatur consectetur expedita facere
+                            fugit
+                            nesciunt odio quos. Adipisci commodi, exercitationem fugiat incidunt ipsa iure maiores nobis
+                            quam suscipit vel.
+                          </Card.Text>
+                        </Col>
+                      </Row>
                     </Card.Body>
                   </Card>
                 </Row>

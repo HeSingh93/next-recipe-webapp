@@ -60,7 +60,7 @@ const MainRecipeFeed = () => {
   }
   const onSaveRating = (index) => {
     setRating(index);
-    localStorage.setItem(recipeData?.meals[0]?.idMeal, index);
+    localStorage.setItem(recipeData?.meals[0]?.strMeal, index);
   }
   // Gör ett API anrop för att hämta hem ett slumpvalt recept för att sedan lägga in i en array.
   const fetchRandomRecipe = async () => {

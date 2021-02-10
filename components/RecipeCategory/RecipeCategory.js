@@ -30,8 +30,8 @@ const RecipeCategory = ({category}) => {
             </div>
           </div>
         </div>
-        <Row className={'center'}>
-          <Col xs={2}>
+        <Row noGutters={true}>
+          <Col>
             <Category/>
           </Col>
           <Col md={"auto"}>

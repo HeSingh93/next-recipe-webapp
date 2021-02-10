@@ -5,3 +5,11 @@
     justify-content: center;
     justify-items: center;
 }
+
+.ingredient {
+    text-align: center;
+}
+
+.amount {
+    font-weight: bold;
+}

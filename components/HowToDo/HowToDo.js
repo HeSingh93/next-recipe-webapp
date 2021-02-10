@@ -8,7 +8,7 @@ function HowToDo({instructions}) {
 
   return (
       <Container>
-        <h4 className="text-center"><strong>Gör såhär</strong></h4>
+        <h4 className="text-center"><strong>Instructions</strong></h4>
         <p>{instructions}</p>
       </Container>
   );

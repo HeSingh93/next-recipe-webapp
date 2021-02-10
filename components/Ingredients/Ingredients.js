@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Col, Container, ListGroup, ListGroupItem, Row, Table} from "react-bootstrap";
 import style from './Ingredients.module.css'
 
 function Ingredients({ingredients, measure}) {
@@ -13,26 +13,20 @@ function Ingredients({ingredients, measure}) {
   console.log("Merged", mergedArray)
 
   return (
-      <Container>
-        <h4 className="text-center"><strong>Ingredienser</strong></h4>
-        <div className={style.container}>
-          <ListGroup>
-            <ListGroupItem><h4><strong>Amount</strong></h4></ListGroupItem>
+      <Container >
+        <h4 className="text-center"><strong>Ingredients</strong></h4>
+        <Row>
+          <ListGroup variant="flush">
             {measure.map(amount =>
-                <ListGroupItem>
-                  {amount}
-                </ListGroupItem>
+                <ListGroupItem className={style.amount}>{amount}</ListGroupItem>
             )}
           </ListGroup>
-          <ListGroup>
-            <ListGroupItem><h4><strong>Ingredient</strong></h4></ListGroupItem>
+          <ListGroup variant="flush">
             {ingredients.map(ingredient =>
-                <ListGroupItem>
-                  {ingredient}
-                </ListGroupItem>
+                <ListGroupItem className={style.ingredient}>{ingredient}</ListGroupItem>
             )}
           </ListGroup>
-        </div>
+        </Row>
       </Container>
   )
 }
