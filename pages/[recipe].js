@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Row, Col, Card, Image, Navbar, NavLink} from 'react-bootstrap';
+import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel, Nav} from 'react-bootstrap';
 import style from "../styles/FoodCard.module.css";
 import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
 import {GoChecklist} from "react-icons/go";
@@ -8,6 +8,8 @@ import HowToDo from "../components/HowToDo/HowToDo";
 import {useRouter} from "next/router";
 import axios from "axios";
 import Logo from "../public/js/Logo";
+import styles from "../styles/mainPage.module.css";
+import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
@@ -141,7 +143,7 @@ function Recipe() {
                     <Navbar.Collapse>
                       <NavLink className={style.navItemText} href="/">HOME</NavLink>
                       <NavLink className={style.navItemText} href="/">ABOUT</NavLink>
-                      <NavLink className={style.navItemText} href="#CONTACT">CONTACT</NavLink>
+                      <NavLink className={style.navItemText} href="/#CONTACTS">CONTACT</NavLink>
                     </Navbar.Collapse>
                   </Navbar>
                 </Row>
@@ -202,6 +204,37 @@ function Recipe() {
               </Col>
             </Row>
           </Container>
+          <Card class={"mx-auto p-3 border "}>
+            <footer id={"SUGGESTED"}>
+              <div>
+                <Row className={styles.centerAlignment}>
+                  <h2 className={` p-3 ${styles.FooterHeader}`}>Suggested recipes</h2>
+                </Row>
+                <Container>
+                  <Row >
+                    <Col className={styles.card}>
+                      <Carousel interval={6000}>
+                        <Carousel.Item>
+                          <SuggestedMeal/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                          <SuggestedMeal/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                          <SuggestedMeal/>
+                        </Carousel.Item>
+                      </Carousel>
+                    </Col>
+                  </Row>
+                </Container>
+                <Row className={styles.centerAlignment}>
+                  <Nav fill>
+                    <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
+                  </Nav>
+                </Row>
+              </div>
+            </footer>
+          </Card>
         </Container>
       </div>
   )
