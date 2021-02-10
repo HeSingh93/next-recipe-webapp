@@ -73,6 +73,7 @@ function Recipe() {
         ingredients.strIngredient1,
         ingredients.strIngredient2,
         ingredients.strIngredient3,
+        ingredients.strIngredient4,
         ingredients.strIngredient5,
         ingredients.strIngredient6,
         ingredients.strIngredient7,
@@ -93,7 +94,7 @@ function Recipe() {
   });
 
   const filteredIngredientArray = ingredientArray.filter(function (el) {
-    return el != null && el !== "";
+    return el != null && el !== "" && el !== " ";
   })
 
   const measureArray = [];
@@ -123,9 +124,9 @@ function Recipe() {
   });
 
   const filteredMeasureArray = measureArray.filter(function (el) {
-    return el !== "" && el !== null;
+    return el !== "" && el !== null && el !== " ";
   })
-
+  console.log("measure", filteredMeasureArray)
   return (
       <div>
         <div className={style.indexContainer}>

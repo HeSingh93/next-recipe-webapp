@@ -60,7 +60,7 @@ const MainRecipeFeed = () => {
   }
   const onSaveRating = (index) => {
     setRating(index);
-    localStorage.setItem("ASDF", index);
+    localStorage.setItem(recipeData?.meals[0]?.idMeal, index);
   }
   // Gör ett API anrop för att hämta hem ett slumpvalt recept för att sedan lägga in i en array.
   const fetchRandomRecipe = async () => {
@@ -72,7 +72,7 @@ const MainRecipeFeed = () => {
 
   const displayTitle = () => {
     if (!loading) {
-      return <a className={styles.navFooterText} href={recipeData?.meals[0]?.strSource}><h2>{recipeData?.meals[0]?.strMeal}</h2></a>
+      return <a className={styles.navFooterText} href={`/recipe?id=${recipeData?.meals[0]?.idMeal}`}><h2>{recipeData?.meals[0]?.strMeal}</h2></a>
     }
   }
 
@@ -85,12 +85,6 @@ const MainRecipeFeed = () => {
   const areaOfOrigin = () => {
     if (!loading) {
       return <h6>Area: <strong>{recipeData?.meals[0]?.strArea}</strong></h6>
-    }
-  }
-
-  const linkToRecipe = () => {
-    if (!loading) {
-      return <p><a href={recipeData?.meals[0]?.strSource}>{recipeData?.meals[0]?.strSource}</a></p>
     }
   }
 

@@ -33,7 +33,7 @@ const Category = () => {
                 <Row>
                   <Card>
                     <Card.Header className={styles.card}
-                                 key={meal}><a
+                                 key={meal}><a className={styles.card}
                                  href={`/recipe?id=${meal.idMeal}`}> {meal.strMeal}</a></Card.Header>
                     <Card.Body className={styles.cardBody}>
                       <Card.Img className={styles.cardImg}

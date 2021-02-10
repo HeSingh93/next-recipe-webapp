@@ -3,6 +3,15 @@ import {Container, ListGroup, ListGroupItem} from "react-bootstrap";
 import style from './Ingredients.module.css'
 
 function Ingredients({ingredients, measure}) {
+
+  console.log("ingredients Ingredients", ingredients)
+  console.log("measure Ingredients", measure)
+
+  const mergedArray = measure.map(function (v, i) {
+    return [v, ingredients[i]];
+  })
+  console.log("Merged", mergedArray)
+
   return (
       <Container>
         <h4 className="text-center"><strong>Ingredienser</strong></h4>

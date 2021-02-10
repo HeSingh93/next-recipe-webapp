@@ -4,6 +4,7 @@ import axios from "axios";
 import style from './Category.module.css'
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
+
 const Category = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,7 +34,7 @@ const Category = () => {
         <Accordion>
           <Card>
             <AccordionToggle as={Card.Header} eventKey={"0"}>
-              <h5 className={style.text}>Categories ({categoryData.categories?.length})</h5>
+              <h5 className={style.header}>Categories ({categoryData.categories?.length})</h5>
             </AccordionToggle>
             <AccordionCollapse eventKey={"0"}>
               <Card.Body><strong>{displayCategories()}</strong></Card.Body>

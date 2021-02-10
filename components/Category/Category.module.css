@@ -1,21 +1,33 @@
 .boxLeft {
-    padding-left: 10px;
+    padding-left: 5px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     alignment: center;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
 }
 
-.text {
-    color: dimgrey;
-    text-shadow:black;
+.header {
+    color: dimgrey !important;
+    font-family: -apple-system, serif;
+    font-weight: bold;
+    font-size: 1.5em;
     text-align: center;
 }
 
-.text:hover {
+.header:hover {
     color: #F15025;
+    cursor: pointer;
+}
+
+.text {
+    display: flex;
+    color: dimgrey !important;
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: center;
+}
+
+.text:hover {
     cursor: pointer;
 }
 
