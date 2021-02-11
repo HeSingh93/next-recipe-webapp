@@ -1,9 +1,11 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
+@media screen and (max-width: 800px) {
+    .listgroup {
+        padding-left: 50px;
+    }
+}
+
+.listgroup {
+    padding-left: 40px;
 }
 
 .ingredient {
@@ -13,3 +15,10 @@
 .amount {
     font-weight: bold;
 }
+
+.header {
+    font-family: -apple-system, serif;
+    color: dimgrey !important;
+    text-align: center;
+}
+

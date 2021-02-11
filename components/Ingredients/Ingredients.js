@@ -1,27 +1,23 @@
 import React from "react";
-import {Col, Container, ListGroup, ListGroupItem, Row, Table} from "react-bootstrap";
+import {Container, ListGroup, ListGroupItem, Row} from "react-bootstrap";
 import style from './Ingredients.module.css'
 
 function Ingredients({ingredients, measure}) {
 
-  console.log("ingredients Ingredients", ingredients)
-  console.log("measure Ingredients", measure)
-
   const mergedArray = measure.map(function (v, i) {
     return [v, ingredients[i]];
   })
-  console.log("Merged", mergedArray)
 
   return (
-      <Container >
-        <h4 className="text-center"><strong>Ingredients</strong></h4>
+      <Container className="border">
+        <h3 className={style.header}><strong>Ingredients</strong></h3>
         <Row>
-          <ListGroup variant="flush">
+          <ListGroup variant="flush" className={style.listgroup}>
             {measure.map(amount =>
                 <ListGroupItem className={style.amount}>{amount}</ListGroupItem>
             )}
           </ListGroup>
-          <ListGroup variant="flush">
+          <ListGroup variant="flush" className={style.listgroup}>
             {ingredients.map(ingredient =>
                 <ListGroupItem className={style.ingredient}>{ingredient}</ListGroupItem>
             )}

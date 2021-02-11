@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel, Nav} from 'react-bootstrap';
-import style from "../styles/FoodCard.module.css";
+import style from "../styles/Recipe.module.css";
 import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
 import {GoChecklist} from "react-icons/go";
 import Ingredients from "../components/Ingredients/Ingredients";
@@ -129,15 +129,15 @@ function Recipe() {
   const filteredMeasureArray = measureArray.filter(function (el) {
     return el !== "" && el !== null && el !== " ";
   })
-  console.log("measure", filteredMeasureArray)
+
   return (
       <div>
         <div className={style.indexContainer}>
           <div id="Banner" className={style.bannerContainer}>
             <div className={style.bannerImage}>
               <div className={style.navContainer}>
-                <Row className={style.centerAlignment}><Logo/></Row>
-                <Row className={style.centerAlignment}>
+                <Row ><Logo/></Row>
+                <Row >
                   <Navbar collapseOnSelect expand={"md | lg | xl"}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse>
@@ -210,9 +210,9 @@ function Recipe() {
                 <Row className={styles.centerAlignment}>
                   <h2 className={` p-3 ${styles.FooterHeader}`}>Suggested recipes</h2>
                 </Row>
-                <Container>
-                  <Row >
-                    <Col className={styles.card}>
+                <Container className={"d-flex justify-content-center"}>
+                  <Row>
+                    <Col sm={1} lg={12} className={styles.card}>
                       <Carousel interval={6000}>
                         <Carousel.Item>
                           <SuggestedMeal/>
@@ -227,7 +227,7 @@ function Recipe() {
                     </Col>
                   </Row>
                 </Container>
-                <Row className={styles.centerAlignment}>
+                <Row>
                   <Nav fill>
                     <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
                   </Nav>

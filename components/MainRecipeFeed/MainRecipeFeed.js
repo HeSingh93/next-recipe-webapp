@@ -70,21 +70,16 @@ const MainRecipeFeed = () => {
     setLoading(false);
   }
 
-  const displayTitle = () => {
+  const displayInfo = () => {
     if (!loading) {
-      return <a className={styles.navFooterText} href={`/recipe?id=${recipeData?.meals[0]?.idMeal}`}><h2>{recipeData?.meals[0]?.strMeal}</h2></a>
-    }
-  }
-
-  const displayCategory = () => {
-    if (!loading) {
-      return <h5>Category: {recipeData?.meals[0]?.strCategory}</h5>
-    }
-  }
-
-  const areaOfOrigin = () => {
-    if (!loading) {
-      return <h6>Area: <strong>{recipeData?.meals[0]?.strArea}</strong></h6>
+      return (
+          <div>
+            <a className={styles.navFooterText} href={`/recipe?id=${recipeData?.meals[0]?.idMeal}`}>
+              <h2>{recipeData?.meals[0]?.strMeal}</h2></a>
+            <h5>Category: {recipeData?.meals[0]?.strCategory}</h5>
+            <h6>Area: <strong>{recipeData?.meals[0]?.strArea}</strong></h6>
+          </div>
+      )
     }
   }
 
@@ -100,9 +95,7 @@ const MainRecipeFeed = () => {
               <Image className={style.image} alt="Image of meal" src={image}/>
             </Col>
             <Col sm={6}>
-              <h2>{displayTitle()}</h2>
-              <h5>{displayCategory()}</h5>
-              <h6>{areaOfOrigin()}</h6>
+              <>{displayInfo()}</>
               <div className="d-flex">
                 {[1, 2, 3, 4, 5].map((index) => {
                   return (

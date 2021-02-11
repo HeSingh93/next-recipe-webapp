@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Accordion, AccordionCollapse, AccordionToggle, Card, Container} from "react-bootstrap";
 import axios from "axios";
 import style from './Category.module.css'
+
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
 
@@ -20,7 +21,8 @@ const Category = () => {
     if (!loading) {
       return (
           <Container>{categoryData.categories?.map(category => <Card.Body
-              key={category}><a className={style.text} href={`/category?cat=${category.strCategory}`}>{category.strCategory}</a></Card.Body>)}</Container>
+              key={category}><a className={style.text}
+                                href={`/category?cat=${category.strCategory}`}>{category.strCategory}</a></Card.Body>)}</Container>
       )
     }
   }

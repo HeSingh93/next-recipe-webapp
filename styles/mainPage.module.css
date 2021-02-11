@@ -12,7 +12,6 @@
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
-
 .navContainer {
     padding-top: 25px;
     justify-content: center;
@@ -27,17 +26,10 @@
 }
 
 .navItemText {
-  font-family: -apple-system, serif;
-  font-size: x-large;
-  justify-content: left;
-  color: dimgrey !important;
-  backdrop-filter: drop-shadow(10px 10px 2px black);
-}
-
-.navItemText {
-  font-family: -apple-system, serif;
+    font-family: -apple-system, serif;
     font-size: x-large;
-    color: white !important;
+    justify-content: left;
+    color: dimgrey !important;
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
@@ -84,21 +76,21 @@
 }
 
 .searchBarContainer {
-  color: white;
-  background: transparent;
-  border-radius: 0.7em;
-  border: 1px;
-  box-shadow: 0.5px 0.7px 3px 2px rgba(226,226,226,0.75);
-  font-weight: bold;
-  padding-inline: 7px;
+    color: white;
+    background: transparent;
+    border-radius: 0.7em;
+    border: 1px;
+    box-shadow: 1px 1px 3px 2px rgba(226, 226, 226, 0.75);
+    font-weight: bold;
+    padding-inline: 7px;
 }
 
 .searchBarIcon {
-  color: #F15025;
+    color: #F15025;
 }
 
 .searchBarIcon:hover {
-  color: #F87B5B;
+    color: #F87B5B;
 }
 
 .searchBar:hover, .searchBar:focus {
@@ -116,10 +108,6 @@
     right: 0;
 }
 
-.shadowOverlay {
-    filter: brightness(70%);
-}
-
 .bannerImage {
     filter: brightness(75%);
     background-image: url('../public/images/3.jpg');
@@ -131,12 +119,16 @@
 }
 
 .logo {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
     width: auto;
     height: 220px;
     color: #F15025 !important;
 }
 
 .centerAlignment {
+    display: flex;
     justify-content: center;
 }
 
@@ -185,14 +177,7 @@
     padding: 20px;
 }
 
-.hermanCard {
-    justify-content: center;
-    margin: auto;
-    overflow-x: hidden;
-    width: 50%;
-}
-
-.hampusCard {
+.profileCard {
     justify-content: center;
     margin: auto;
     overflow-x: hidden;

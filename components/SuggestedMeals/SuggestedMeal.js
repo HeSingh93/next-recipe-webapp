@@ -23,54 +23,47 @@ export default function SuggestedMeal() {
     setStrArea(data.meals[0]?.strArea)
     setIdMeal(data.meals[0]?.idMeal)
     setLoading(false)
-    console.log("SUGGEST ARRAY",suggestedMeal.meals)
+    console.log("SUGGEST ARRAY", suggestedMeal.meals)
     console.log("DATA", data)
   }
 
-  const displayTitle = () => {
+  const displayInfo = () => {
     if (!loading) {
-      return <a className={styles.navFooterText} href={`/recipe?id=${idMeal}`}><h2>{strMeal}</h2></a>
-    }
-  }
-
-  const displayCategory = () => {
-    if (!loading) {
-      return <h5>Category: {strCategory}</h5>
-    }
-  }
-
-  const areaOfOrigin = () => {
-    if (!loading) {
-      return <h6>Area: <strong>{strArea}</strong></h6>
+      return (
+          <div>
+            <a className={styles.navFooterText} href={`/recipe?id=${idMeal}`}><h2>{strMeal}</h2></a>
+            <h5>Category: {strCategory}</h5>
+            <h6>Area: <strong>{strArea}</strong></h6>
+          </div>
+      )
     }
   }
   useEffect(() => {
     fetchSuggestedMeal();
-  },[])
+  }, [])
 
   return (
-          <Container fluid={"sm"}>
-            <Card className={"mx-auto p-3"}>
-              <div>
-                <Row xs={1} md={2}>
-                  <Col md={"auto"}>
-                    <Image className={style.image} alt="Image of meal" src={image}/>
-                  </Col>
-                  <Col sm={6}>
-                    <h2>{displayTitle()}</h2>
-                    <h5>{displayCategory()}</h5>
-                    <h6>{areaOfOrigin()}</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim facilis quisquam ut. Aperiam
-                      doloribus exercitationem illum itaque laudantium neque officia optio qui, temporibus! Cupiditate eos
-                      laboriosam non possimus quasi.Alias aliquam architecto aspernatur atque dolorem dolores dolorum eligendi
-                      enim est et eum facere fugiat illum, impedit ipsam iure, maxime porro provident quas tenetur totam vel
-                      veritatis vero voluptatem voluptates!
-                    </p>
-                  </Col>
-                </Row>
-              </div>
-            </Card>
-          </Container>
+      <Container fluid={"sm"}>
+        <Card className={"mx-auto p-3"}>
+          <div>
+            <Row xs={1} md={2}>
+              <Col md={"auto"}>
+                <Image className={style.image} alt="Image of meal" src={image}/>
+              </Col>
+              <Col sm={6}>
+                <>{displayInfo()}</>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim facilis quisquam ut. Aperiam
+                  doloribus exercitationem illum itaque laudantium neque officia optio qui, temporibus! Cupiditate eos
+                  laboriosam non possimus quasi.Alias aliquam architecto aspernatur atque dolorem dolores dolorum
+                  eligendi
+                  enim est et eum facere fugiat illum, impedit ipsam iure, maxime porro provident quas tenetur totam vel
+                  veritatis vero voluptatem voluptates!
+                </p>
+              </Col>
+            </Row>
+          </div>
+        </Card>
+      </Container>
   )
 }

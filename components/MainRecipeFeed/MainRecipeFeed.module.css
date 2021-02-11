@@ -15,3 +15,10 @@
     width: 300px;
     height: 300px;
 }
+
+@media screen and (max-width: 800px) {
+    .image {
+        width: 370px;
+        height: 300px;
+    }
+}

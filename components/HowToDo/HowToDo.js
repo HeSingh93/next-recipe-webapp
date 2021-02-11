@@ -1,14 +1,12 @@
 import {Container} from "react-bootstrap";
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-
-const API_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
+import React from "react";
+import style from './HowToDo.module.css'
 
 function HowToDo({instructions}) {
 
   return (
-      <Container>
-        <h4 className="text-center"><strong>Instructions</strong></h4>
+      <Container className={style.container}>
+        <h3 className={style.header}><strong>Instructions</strong></h3>
         <p>{instructions}</p>
       </Container>
   );

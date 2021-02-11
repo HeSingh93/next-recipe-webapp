@@ -1,0 +1,16 @@
+.header {
+    font-family: -apple-system, serif;
+    color: dimgrey !important;
+    text-align: center;
+}
+
+.container {
+    border: 1px solid lightgray;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        border: 1px solid lightgray;
+        margin-top: 5px
+    }
+}
