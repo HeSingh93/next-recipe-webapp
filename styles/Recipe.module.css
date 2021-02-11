@@ -49,7 +49,6 @@
     padding: 10px 10px 10px 20px;
 }
 
-
 .card {
     background-color: #F15025;
     color: #FFFFFF;
@@ -65,7 +64,33 @@
     .image {
         display: flex;
         justify-content: center;
-        width: 385px;
+        width: 415px;
         height: 300px;
     }
+
+    .row {
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .image {
+        display: flex;
+        justify-content: center;
+        width: 400px;
+        height: 300px;
+    }
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 226px;
+    width: 325px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 226px;
+    width: 325px;
 }

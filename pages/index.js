@@ -12,7 +12,6 @@ import AppContext from "../Context/ContextIndex";
 
 export default function Home() {
   let {query} = useContext(AppContext);
-
   const mealList = () => {
     if (query.length > 1) {
       return (

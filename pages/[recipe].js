@@ -17,7 +17,6 @@ function Recipe() {
   const router = useRouter();
   console.log("Id: ", router.query.id)
   const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
-
   const fetchRecipeById = async () => {
     console.log("Making call to: ", `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`)
     const {data} = await axios.get(API_URL);
@@ -44,32 +43,27 @@ function Recipe() {
     }
   }
 
+  const displayArea = () => {
+    if (!loading) {
+      const MAP_URL = `https://maps.google.com/maps?q=${recipeData?.meals[0]?.strArea}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+      return (
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe width="325" height="226" id="gmap_canvas"
+                      src={MAP_URL} frameBorder="0"
+                      scrolling="no" marginHeight="0" marginWidth="0"/>
+            </div>
+          </div>
+      )
+    }
+  }
+
   useEffect(() => {
     if (router.query.id !== undefined) {
       fetchRecipeById()
     }
   }, [router]);
 
-  /*
-  const array = recipeData.meals?.map(ingredients => ({ value: ingredients.strIngredient1
-  }));
-  */
-  // const arr = [];
-  /*
-  recipeData.meals?.forEach(ingredient => {
-    console.log("Hej hopp", ingredient)
-  });
-  console.log("Tja!", recipeData.meals[0]);
-
-  if (recipeData.meals !== null) {
-    const mealObject = recipeData.meals[0]
-    for (const key in mealObject) {
-      if (key.startsWith('strIngredient')) {
-        console.log(mealObject[key]);
-      }
-    }
-  }
-  */
   const ingredientArray = [];
   recipeData.meals?.map(ingredients => {
     ingredientArray.push(
@@ -136,8 +130,8 @@ function Recipe() {
           <div id="Banner" className={style.bannerContainer}>
             <div className={style.bannerImage}>
               <div className={style.navContainer}>
-                <Row ><Logo/></Row>
-                <Row >
+                <Row className={style.centerAlignment}><Logo/></Row>
+                <Row className={style.centerAlignment}>
                   <Navbar collapseOnSelect expand={"md | lg | xl"}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse>
@@ -156,6 +150,7 @@ function Recipe() {
             <Row>
               <Col sm={12} md={6} xl={5}>
                 <h1>{displayTitle()}</h1>
+                <>{displayArea()}</>
                 <Container md className={style.card}>
                   <Card class="mx-auto w-100"
                         className={style.card}>
@@ -196,7 +191,7 @@ function Recipe() {
           </Card>
           <Container className="border p-2">
             <Row>
-              <Col md={"auto"}>
+              <Col>
                 <Ingredients ingredients={filteredIngredientArray} measure={filteredMeasureArray}/>
               </Col>
               <Col>
@@ -204,33 +199,25 @@ function Recipe() {
               </Col>
             </Row>
           </Container>
-          <Card class={"mx-auto p-3 border "}>
+          <Card class={"mx-auto pl-4 border"}>
             <footer id={"SUGGESTED"}>
+              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment}`}>Suggested recipes</h2>
               <div>
-                <Row className={styles.centerAlignment}>
-                  <h2 className={` p-3 ${styles.FooterHeader}`}>Suggested recipes</h2>
+                <Row className={styles.card}>
+                  <Carousel interval={4000}>
+                    <Carousel.Item>
+                      <SuggestedMeal/>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <SuggestedMeal/>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <SuggestedMeal/>
+                    </Carousel.Item>
+                  </Carousel>
                 </Row>
-                <Container className={"d-flex justify-content-center"}>
-                  <Row>
-                    <Col sm={1} lg={12} className={styles.card}>
-                      <Carousel interval={6000}>
-                        <Carousel.Item>
-                          <SuggestedMeal/>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                          <SuggestedMeal/>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                          <SuggestedMeal/>
-                        </Carousel.Item>
-                      </Carousel>
-                    </Col>
-                  </Row>
-                </Container>
-                <Row>
-                  <Nav fill>
-                    <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link></Nav.Item>
-                  </Nav>
+                <Row className={"d-flex justify-content-center"}>
+                  <a className={"text-center"} href="#Banner"><h3 className={styles.navFooterText}> Go to top</h3></a>
                 </Row>
               </div>
             </footer>
