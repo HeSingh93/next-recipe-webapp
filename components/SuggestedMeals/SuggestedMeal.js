@@ -44,13 +44,13 @@ export default function SuggestedMeal() {
 
   return (
       <Container fluid={"sm"}>
-        <Card className={"mx-auto p-3"}>
+        <Card >
           <div>
-            <Row xs={1} md={2}>
-              <Col md={"auto"}>
+            <Row xs={1} sm={3} md={2}>
+              <Col md={"auto"} >
                 <Image className={style.image} alt="Image of meal" src={image}/>
               </Col>
-              <Col sm={6}>
+              <Col xs={9} sm={3}>
                 <>{displayInfo()}</>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim facilis quisquam ut. Aperiam
