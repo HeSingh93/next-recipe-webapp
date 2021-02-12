@@ -8,8 +8,6 @@ function Ingredients({ingredients, measure}) {
     return [v + " " + ingredients[i]];
   })
 
-  console.log("Merge", mergedArray)
-
   return (
       <Container className={style.container}>
         <h3 className={style.header}><strong>Ingredients</strong></h3>

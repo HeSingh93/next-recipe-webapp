@@ -1,21 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel, Nav} from 'react-bootstrap';
-import style from "../styles/Recipe.module.css";
-import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
-import {GoChecklist} from "react-icons/go";
-import Ingredients from "../components/Ingredients/Ingredients";
-import HowToDo from "../components/HowToDo/HowToDo";
 import {useRouter} from "next/router";
 import axios from "axios";
-import Logo from "../public/js/Logo";
+import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel} from 'react-bootstrap';
+import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
+import {GoChecklist} from "react-icons/go";
+import style from "../styles/Recipe.module.css";
 import styles from "../styles/mainPage.module.css";
+import Ingredients from "../components/Ingredients/Ingredients";
+import HowToDo from "../components/HowToDo/HowToDo";
+import Logo from "../public/js/Logo";
 import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  console.log("Id: ", router.query.id)
+
   const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
   const fetchRecipeById = async () => {
     console.log("Making call to: ", `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`)
@@ -150,7 +150,6 @@ function Recipe() {
             <Row>
               <Col sm={12} md={6} xl={5}>
                 <h1>{displayTitle()}</h1>
-                <>{displayArea()}</>
                 <Container md className={style.card}>
                   <Card class="mx-auto w-100"
                         className={style.card}>
@@ -179,10 +178,11 @@ function Recipe() {
                   quidem quisquam quos recusandae repellendus vel voluptates.
                   A architecto deserunt, eos nobis quia repellendus. Cumque exercitationem explicabo facilis
                   in ipsa nam quasi
-                  quibusdam voluptatibus! Adipisci assumenda consectetur, error ex labore laborum perferendis
-                  similique.
-                  Eveniet iure optio tempore?
+                  quibusdam voluptatibus!
                 </Card.Text>
+                <Col className={"d-flex justify-content-center"}>
+                  <div>{displayArea()}</div>
+                </Col>
               </Col>
               <Col className="w-100 d-block pl-4">
                 <>{displayImage()}</>
@@ -201,20 +201,22 @@ function Recipe() {
           </Container>
           <Card class={"mx-auto pl-4 border"}>
             <footer id={"SUGGESTED"}>
-              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment}`}>Suggested recipes</h2>
+              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested recipes</h2>
               <div>
-                <Row className={styles.card}>
-                  <Carousel interval={4000}>
-                    <Carousel.Item>
-                      <SuggestedMeal/>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                      <SuggestedMeal/>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                      <SuggestedMeal/>
-                    </Carousel.Item>
-                  </Carousel>
+                <Row className={styles.suggested}>
+                  <Col >
+                    <Carousel interval={4000}>
+                      <Carousel.Item>
+                        <SuggestedMeal/>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <SuggestedMeal/>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <SuggestedMeal/>
+                      </Carousel.Item>
+                    </Carousel>
+                  </Col>
                 </Row>
                 <Row className={"d-flex justify-content-center"}>
                   <a className={"text-center"} href="#Banner"><h3 className={styles.navFooterText}> Go to top</h3></a>

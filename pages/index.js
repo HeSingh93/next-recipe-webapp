@@ -21,7 +21,7 @@ export default function Home() {
       return (
           <ListGroup>
             <ListGroup.Item>
-              <h1 className={styles.indexTextTitle}>Searched recipes </h1>
+              <h1 className={styles.indexTextTitle}>Searched recipes</h1>
               <SearchItem/>
             </ListGroup.Item>
           </ListGroup>
@@ -48,7 +48,7 @@ export default function Home() {
       <div className={styles.indexContainer}>
         <div id="Banner" className={styles.bannerContainer}>
           <div className={styles.bannerImage}>
-            <Row className={styles.rightAlignment} >
+            <Row className={styles.rightAlignment}>
               <Header/>
             </Row>
             <div className={styles.navContainer}>
@@ -140,12 +140,9 @@ export default function Home() {
             </Col>
             <Col>
             </Col>
-
           </Row>
         </div>
         <footer className={styles.footer}/>
       </div>
-
-
   )
 }

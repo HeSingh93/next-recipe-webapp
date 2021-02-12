@@ -1,6 +1,6 @@
 @media screen and (max-width: 800px) {
     .row {
-        padding-right: 50px;
+        padding-right: 20px;
     }
 
     .container {
@@ -9,11 +9,19 @@
 
     .listgroup {
         margin-bottom: 10px;
+        display: flex;
+        align-self: center;
+        margin-right: 40px;
     }
 }
 
 .listgroup {
-    padding-left: 70px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    padding-left: 145px;
 }
 
 .ingredient {
