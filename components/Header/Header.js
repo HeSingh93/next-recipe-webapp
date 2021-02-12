@@ -2,64 +2,40 @@ import React from "react";
 import { useSession, signin, signout } from 'next-auth/client'
 import styles from '../../styles/mainPage.module.css'
 import style from './header.module.css'
+import {Navbar} from "react-bootstrap";
 
 export default function Header() {
-  const [session] = useSession();
+  const [session,loading] = useSession();
 
-  const handleSignIn = (e) => {
-    e.preventDefault()
-    signIn()
-  }
-  const handleSignOut = (e) => {
-    e.preventDefault()
-    signOut()
-  }
-
-  return (/*
-      <div className={styles.navItemText}>
-        {!session && <a href="#" onClick={handleSignIn}  className={styles.navItemText}>LOGIN IN</a>  }
-        {session && <a href="#" onClick={handleSignOut} className="btn-signin">Sign out</a>  }
-      </div>*/
-      <nav>
-        <noscript>
-          <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
-        </noscript>
-        <p>
+  return (
+      <Navbar className={style.container}>
+        <p className={` ${(!session && loading) ? style.loading : style.loaded}`}>
           {!session && (
               <>
-                <span className={style.notSignedIn}>Not signed in</span>
-                <a
-                    href={`/api/auth/signin`}
-                    onClick={(e) => {
+                <span className={style.signText}>Not signed in </span>
+                <a href={`/api/auth/signin`} onClick={(e) => {
                       e.preventDefault()
                       signin()
                     }}
                 >
-                  <button className={style.signinButton}>Sign in</button>
+                  <button className={style.signinButton}>Login</button>
                 </a>
               </>
           )}
           {session && (
               <>
-            <span
-                style={{ backgroundImage: `url(${session.user.image})` }}
-                className={style.avatar}
-            />
-                <span className={style.signedIn}>
-              Signed in as <strong>{session.user.email}</strong>
-            </span>
-                <a
-                    href={`/api/auth/signout`}
+            <span style={{ backgroundImage: `url(${session.user.image})` }} className={style.avatar}/>
+                <span className={style.signText}> Signed in as: <strong>{session.user.email}</strong> </span>
+                <a href={`/api/auth/signout`}
                     onClick={(e) => {
                       e.preventDefault()
                       signout()
-                    }}
-                >
-                  <button className={style.signoutButton}>Sign out</button>
+                    }}>
+                  <button className={style.signoutButton}>Logout</button>
                 </a>
               </>
           )}
         </p>
-      </nav>
+      </Navbar>
   )
 }

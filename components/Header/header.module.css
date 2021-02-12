@@ -1,13 +1,20 @@
+
+.container {
+
+}
+
 .loading,
 .loaded {
     position: relative;
+    justify-content: left;
     top: 0;
     opacity: 1;
     overflow: auto;
     border-radius: 0 0 0.6rem 0.6rem;
+    border: white;
     padding: 0.4rem 0.8rem;
     margin: 0;
-    background-color: #f5f5f5;
+    background-color: transparent;
     transition: all 0.2s ease-in-out;
 }
 
@@ -18,26 +25,32 @@
 
 .signedIn,
 .notSignedIn {
-    position: absolute;
-    padding: 0.6rem 0 0.4rem 0;
-    left: 1rem;
-    right: 7rem;
+    float:left;
+    padding: 0.6rem 0 0.4rem 10rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    display: inherit;
     z-index: 1;
 }
 
-.signedIn {
-    left: 3.8rem;
+.signText {
+    padding: 10px;
+    font-family: -apple-system, serif;
+    font-size: large;
+    justify-content: left;
+    color: grey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
 }
+
+/*.signedIn {
+    left: 3.8rem;
+}*/
 
 .avatar {
     border-radius: 2rem;
     float: left;
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: white;
     background-size: cover;
     border: 2px solid #ddd;
@@ -48,32 +61,33 @@
     float: right;
     margin-right: -0.4rem;
     font-weight: 500;
-    background-color: #1eb1fc;
-    color: #fff;
-    border: 1px solid #1eb1fc;
+    background-color: transparent;
+    border: 1px solid white;
     border-radius: 2rem;
     cursor: pointer;
-    font-size: 1rem;
     line-height: 1rem;
     padding: 0.5rem 1rem;
     position: relative;
     z-index: 10;
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: left;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
 .signinButton:hover {
-    background-color: #1b9fe2;
-    border-color: #1b9fe2;
-    color: #fff;
+    filter: brightness(70%);
 }
 
 .signoutButton {
-    background-color: #fff;
-    border-color: #bbb;
-    color: #555;
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: left;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
 .signoutButton:hover {
-    background-color: #fff;
-    border-color: #aaa;
-    color: #333;
+    filter: brightness(70%);
 }
