@@ -7,14 +7,21 @@ import React, {useContext} from "react";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import dynamic from "next/dynamic";
 import RenderMap from "../components/Map/RenderMap";
+import Header from "../components/Header/Header";
+import {useSession} from "next-auth/client";
 
 export default function YEET() {
   let {suggestedMeal, setSuggestedMeal} = useContext(AppContext);
+  const [session, loading] = useSession();
+
 
 return (
     <div>
       <div className={styles.bannerContainer}>
         <div className={styles.bannerImage}>
+          <Row className={styles.rightAlignment} >
+           <Header className={styles.navItemText}/>
+          </Row>
           <div className={styles.navContainer}>
             <Row id={"Banner"} className={styles.centerAlignment}><Logo/></Row>
             <Row className={styles.centerAlignment}>
@@ -35,6 +42,22 @@ return (
       <div>
         <Row>
           <Col>
+            <main className={styles.main}>
+              <h1 className={styles.title}>Authentication in Next.js app using Next-Auth</h1>
+              <div className={styles.user}>
+                {loading && <div className={styles.title}>Loading...</div>}
+                {session && <> <p style={{ marginBottom: '10px' }}> Welcome, {session.user.name ?? session.user.email}</p> <br />
+                  <img src={session.user.image} alt="" className={styles.avatar} />
+                </>}
+                {!session &&
+                <>
+                  <p className={styles.title}>Please Sign in</p>
+                  <img src="https://cdn.dribbble.com/users/759083/screenshots/6915953/2.gif" alt="" className={styles.avatar} />
+                  <p className={styles.credit}>GIF by <a href="https://dribbble.com/shots/6915953-Another-man-down/attachments/6915953-Another-man-down?mode=media">Another man</a> </p>
+                </>
+                }
+              </div>
+            </main>
 
           </Col>
           <Col md={"auto"}>

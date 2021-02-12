@@ -9,9 +9,12 @@ import HampusProfile from "../public/js/HampusProfile";
 import Category from "../components/Category/Category";
 import SearchItem from "./SearchItem";
 import AppContext from "../Context/ContextIndex";
+import {useSession} from "next-auth/client";
+import Header from "../components/Header/Header";
 
 export default function Home() {
   let {query} = useContext(AppContext);
+  const [session, loading] = useSession();
 
   const mealList = () => {
     if (query.length > 1) {
@@ -45,6 +48,9 @@ export default function Home() {
       <div className={styles.indexContainer}>
         <div id="Banner" className={styles.bannerContainer}>
           <div className={styles.bannerImage}>
+            <Row className={styles.rightAlignment} >
+              <Header/>
+            </Row>
             <div className={styles.navContainer}>
               <Row className={styles.centerAlignment}><Logo/></Row>
               <Row className={styles.centerAlignment}>

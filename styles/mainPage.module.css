@@ -13,7 +13,6 @@
 }
 
 .navContainer {
-    padding-top: 25px;
     justify-content: center;
 }
 
@@ -130,6 +129,12 @@
 .centerAlignment {
     display: flex;
     justify-content: center;
+}
+
+.rightAlignment {
+    display: flex;
+    justify-content: right;
+    padding-bottom: -1000px;
 }
 
 @media only screen and (max-width: 1200px) {
