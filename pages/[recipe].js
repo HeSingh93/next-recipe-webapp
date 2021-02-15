@@ -10,6 +10,7 @@ import Ingredients from "../components/Ingredients/Ingredients";
 import HowToDo from "../components/HowToDo/HowToDo";
 import Logo from "../public/js/Logo";
 import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
+import Login from "../components/Login/Login";
 import Header from "../components/Header/Header";
 
 function Recipe() {
@@ -126,26 +127,7 @@ function Recipe() {
   return (
       <div>
         <div className={style.indexContainer}>
-          <div id="Banner" className={style.bannerContainer}>
-            <div className={style.bannerImage}>
-              <Row className={styles.rightAlignment}>
-                <Header/>
-              </Row>
-              <div className={style.navContainer}>
-                <Row className={style.centerAlignment}><Logo/></Row>
-                <Row className={style.centerAlignment}>
-                  <Navbar collapseOnSelect expand={"md | lg | xl"}>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                    <Navbar.Collapse>
-                      <NavLink className={style.navItemText} href="/">HOME</NavLink>
-                      <NavLink className={style.navItemText} href="/">ABOUT</NavLink>
-                      <NavLink className={style.navItemText} href="/#CONTACTS">CONTACT</NavLink>
-                    </Navbar.Collapse>
-                  </Navbar>
-                </Row>
-              </div>
-            </div>
-          </div>
+        <Header/>
         </div>
         <Container>
           <Card className="p-1">
@@ -200,7 +182,7 @@ function Recipe() {
           </Container>
           <Card class={"mx-auto pl-4 border"}>
             <footer id={"SUGGESTED"}>
-              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested
+              <h2 className={` p-3 ${styles.genericHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested
                 recipes</h2>
               <div>
                 <Row className={styles.suggested}>
@@ -219,7 +201,7 @@ function Recipe() {
                   </Col>
                 </Row>
                 <Row className={"d-flex justify-content-center"}>
-                  <a className={"text-center"} href="#Banner"><h3 className={styles.navFooterText}> Go to top</h3></a>
+                  <a className={"text-center"} href="#Banner"><h3 className={styles.genericText}> Go to top</h3></a>
                 </Row>
               </div>
             </footer>

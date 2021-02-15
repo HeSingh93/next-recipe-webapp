@@ -1,0 +1,131 @@
+
+.container {
+    border: white;
+    border-radius: 0 0 0.6rem 0.6rem;
+    overflow: auto;
+}
+
+.loading,
+.loaded {
+    position: relative;
+    justify-content: left;
+    top: 0;
+    opacity: 1;
+    overflow: auto;
+    border-radius: 0 0 0.6rem 0.6rem;
+    border: white;
+    padding: 0.4rem 0.8rem;
+    margin: 0;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.loading {
+    top: -2rem;
+    opacity: 0;
+}
+
+.signedIn,
+.notSignedIn {
+    float:left;
+    padding: 0.6rem 0 0.4rem 10rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.signText {
+    padding: 10px;
+    font-family: -apple-system, serif;
+    font-size: large;
+    justify-content: left;
+    color: white !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.avatar {
+    border-radius: 2rem;
+    float: left;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+    background-size: cover;
+    border: 2px solid #ddd;
+    justify-content: flex-start;
+}
+
+.signinButton,
+.signoutButton {
+    float: right;
+    margin-right: -0.4rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 2rem;
+    cursor: pointer;
+    line-height: 1rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 10;
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: left;
+    color: lightgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.signinButton,.signoutButton:hover {
+    filter: brightness(70%);
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        border: white;
+        border-radius: 0 0 0.6rem 0.6rem;
+        overflow: auto;
+    }
+
+    .signText {
+        padding: 10px;
+        font-family: -apple-system, serif;
+        font-size: large;
+        justify-content: left;
+        color: white !important;
+        backdrop-filter: drop-shadow(10px 10px 2px black);
+    }
+
+    .avatar {
+        border-radius: 2rem;
+        float: left;
+        height: 2.5rem;
+        width: 2.5rem;
+        background-color: white;
+        background-size: cover;
+        border: 2px solid #ddd;
+        justify-content: flex-start;
+    }
+    .signinButton,
+    .signoutButton {
+        float: left;
+        margin-left: -0.4rem;
+        font-weight: 500;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 2rem;
+        cursor: pointer;
+        line-height: 1rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+        z-index: 10;
+        font-family: -apple-system, serif;
+        font-size: x-large;
+        justify-content: left;
+        color: lightgrey !important;
+        backdrop-filter: drop-shadow(10px 10px 2px black);
+    }
+
+    .signinButton,.signoutButton:hover {
+        filter: brightness(70%);
+    }
+}

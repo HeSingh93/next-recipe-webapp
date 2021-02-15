@@ -19,7 +19,7 @@ export default function SearchItem() {
                         <Image className={style.image} alt="Image of meal" src={meals.strMealThumb}/>
                       </Col>
                       <Col sm={6}>
-                        <a className={styles.navFooterText} href={`/recipe?id=${meals.idMeal}`}><h2>{meals.strMeal}</h2>
+                        <a className={styles.genericText} href={`/recipe?id=${meals.idMeal}`}><h2>{meals.strMeal}</h2>
                         </a>
                         <h5>Category: {meals.strCategory}</h5>
                         <h6>Area: <strong>{meals.strArea}</strong></h6>

@@ -1,44 +1,36 @@
-import React from "react";
-import { useSession, signin, signout } from 'next-auth/client'
-import styles from '../../styles/generic.module.css'
-import style from './header.module.css'
-import {Navbar} from "react-bootstrap";
+import styles from '../Header/Header.module.css'
+import {Nav, Navbar, NavLink, Row} from "react-bootstrap";
+import Login from "../Login/Login";
+import Logo from "../../public/js/Logo";
+import SearchFunction from "../Search/Search";
+import searchbarStyle from "../Search/Search.module.css";
+import React, {useContext, useState} from "react";
 
-export default function Header() {
-  const [session,loading] = useSession();
+export default function Header(){
 
   return (
-      <Navbar collapseOnSelect expand={"md | lg | xl"} className={style.container}>
-        <Navbar.Toggle aria-controls="loginCollapse" />
-        <Navbar.Collapse>
-        <p className={` ${(!session && loading) ? style.loading : style.loaded}`}>
-          {!session && (
-              <>
-                <span className={style.signText}>Not signed in </span>
-                <a href={`/api/auth/signin`} onClick={(e) => {
-                  e.preventDefault()
-                  signin()
-                }}
-                >
-                  <button className={style.signinButton}>Login</button>
-                </a>
-              </>
-          )}
-          {session && (
-              <>
-                <span style={{ backgroundImage:`url(${session.user.image})` }} className={style.avatar}/>
-                <span className={style.signText}> Signed in as: <strong>{session.user.email}</strong> </span>
-                <a href={`/api/auth/signout`}
-                   onClick={(e) => {
-                     e.preventDefault()
-                     signout()
-                   }}>
-                  <button className={style.signoutButton}>Logout</button>
-                </a>
-              </>
-          )}
-        </p>
-        </Navbar.Collapse>
-      </Navbar>
+      <div id="Banner" className={styles.bannerContainer}>
+         <div className={styles.bannerImage}>
+           <Row className={styles.rightAlignment}>
+             <Login/>
+           </Row>
+          <div className={styles.navContainer}>
+            <Row className={styles.centerAlignment}><Logo/></Row>
+            <Row className={styles.centerAlignment}>
+                    <Navbar collapseOnSelect expand={"md | lg | xl"}>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.loginCollapse}/>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav.Link className={styles.navItemText} href="/">HOME</Nav.Link>
+                      <Nav.Link className={styles.navItemText} href="/">ABOUT</Nav.Link>
+                      <Nav.Link className={styles.navItemText} href="#CONTACTS">CONTACTS</Nav.Link>
+                    </Navbar.Collapse>
+                    </Navbar>
+            </Row>
+            <Row className={styles.centerAlignment}>
+              <SearchFunction className={searchbarStyle.searchBar}/>
+            </Row>
+          </div>
+        </div>
+      </div>
   )
 }

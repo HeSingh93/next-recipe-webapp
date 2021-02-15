@@ -24,7 +24,7 @@ const MainRecipeFeed = () => {
     if (!loading) {
       return (
           <div>
-            <a className={styles.navFooterText} href={`/recipe?id=${recipeData?.meals[0]?.idMeal}`}>
+            <a className={styles.genericText} href={`/recipe?id=${recipeData?.meals[0]?.idMeal}`}>
               <h2>{recipeData?.meals[0]?.strMeal}</h2></a>
             <h5>Category: {recipeData?.meals[0]?.strCategory}</h5>
             <h6>Area: <strong>{recipeData?.meals[0]?.strArea}</strong></h6>

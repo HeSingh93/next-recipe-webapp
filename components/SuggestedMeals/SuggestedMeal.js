@@ -31,7 +31,7 @@ export default function SuggestedMeal() {
     if (!loading) {
       return (
           <div>
-            <a className={styles.navFooterText} href={`/recipe?id=${idMeal}`}><h2>{strMeal}</h2></a>
+            <a className={styles.genericText} href={`/recipe?id=${idMeal}`}><h2>{strMeal}</h2></a>
             <h5>Category: {strCategory}</h5>
             <h6>Area: <strong>{strArea}</strong></h6>
           </div>
