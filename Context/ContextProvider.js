@@ -13,6 +13,7 @@ const ContextProvider = ({children}) => {
     query, setQuery, results, setResult, searchData, setSearchData, recipes, setRecipes,
     suggestedMeal, setSuggestedMeal
   };
+
   return (
       <AppContext.Provider value={context}>
         {children}

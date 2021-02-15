@@ -17,6 +17,7 @@ export default function Search() {
       setRecipes([]);
     }
   }
+
   return (
       <div>
         <label>

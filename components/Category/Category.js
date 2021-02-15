@@ -5,7 +5,6 @@ import style from './Category.module.css'
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
-
 const Category = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);

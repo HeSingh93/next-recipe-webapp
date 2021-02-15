@@ -15,7 +15,7 @@ export default function SearchItem() {
                 <Card className={"mx-auto p-3"}>
                   <div>
                     <Row xs={1} md={2}>
-                      <Col md={"auto"}>
+                      <Col md={"auto"} sm={"auto"}>
                         <Image className={style.image} alt="Image of meal" src={meals.strMealThumb}/>
                       </Col>
                       <Col sm={6}>

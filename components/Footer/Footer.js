@@ -1,9 +1,9 @@
+import React from "react";
 import {Card, Col, Container, Nav, Row} from "react-bootstrap";
 import styles from '../Footer/Footer.module.css'
 import genericStyle from '../../styles/generic.module.css'
 import HermanProfile from "../../public/js/HermanProfile";
 import HampusProfile from "../../public/js/HampusProfile";
-import React from "react";
 
 export default function Footer() {
   return (
@@ -60,9 +60,8 @@ export default function Footer() {
               </Row>
             </Container>
             <Row className={genericStyle.centerAlignment}>
-              <Nav fill>
-                <Nav.Item><Nav.Link className={styles.navFooterText} href="#Banner">Go to
-                  top</Nav.Link></Nav.Item>
+              <Nav>
+                <Nav.Link className={styles.navFooterText} href="#Banner">Go to top</Nav.Link>
               </Nav>
             </Row>
           </div>

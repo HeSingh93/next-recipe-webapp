@@ -12,7 +12,6 @@
         margin-right: auto;
         margin-bottom: 10px;
     }
-
 }
 
 @media screen and (max-width: 900px) {
@@ -45,5 +44,4 @@
 
 .cardText {
     padding-left: 30px;
-
 }

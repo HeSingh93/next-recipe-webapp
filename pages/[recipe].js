@@ -127,7 +127,7 @@ function Recipe() {
   return (
       <div>
         <div className={style.indexContainer}>
-        <Header/>
+          <Header/>
         </div>
         <Container>
           <Card className="p-1">

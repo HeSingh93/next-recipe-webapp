@@ -43,11 +43,11 @@ export default function SuggestedMeal() {
   }, [])
 
   return (
-      <Container fluid={"sm"}>
-        <Card >
+      <Container>
+        <Card>
           <div>
             <Row xs={1} sm={3} md={2}>
-              <Col md={"auto"} >
+              <Col md={"auto"}>
                 <Image className={style.image} alt="Image of meal" src={image}/>
               </Col>
               <Col xs={9} sm={3}>

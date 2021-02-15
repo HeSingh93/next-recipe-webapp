@@ -1,14 +1,13 @@
 import React from "react";
-import {Row, Navbar, Nav, Container, Col} from "react-bootstrap";
+import {Row, Container, Col} from "react-bootstrap";
 import styles from '../../styles/generic.module.css'
-import Logo from "../../public/js/Logo";
 import Category from "../Category/Category";
 import Header from "../Header/Header";
 
 const RecipeCategory = ({category}) => {
   return (
       <div className={styles.indexContainer}>
-   <Header/>
+        <Header/>
         <Row noGutters={true}>
           <Col>
             <Category/>

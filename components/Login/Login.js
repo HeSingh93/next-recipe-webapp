@@ -1,11 +1,10 @@
 import React from "react";
-import { useSession, signin, signout } from 'next-auth/client'
-import styles from '../../styles/generic.module.css'
+import {useSession, signin, signout} from 'next-auth/client'
 import style from './Login.module.css'
 import {Navbar} from "react-bootstrap";
 
 export default function Login() {
-  const [session,loading] = useSession();
+  const [session, loading] = useSession();
 
   return (
       <Navbar collapseOnSelect expand={"md | lg | xl"} className={style.container}>
@@ -24,7 +23,7 @@ export default function Login() {
           )}
           {session && (
               <>
-                <span style={{ backgroundImage:`url(${session.user.image})` }} className={style.avatar}/>
+                <span style={{backgroundImage: `url(${session.user.image})`}} className={style.avatar}/>
                 <span className={style.signText}> Signed in as: <strong>{session.user.email}</strong> </span>
                 <a href={`/api/auth/signout`}
                    onClick={(e) => {

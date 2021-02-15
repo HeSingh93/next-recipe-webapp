@@ -1,41 +1,41 @@
 .FooterText {
-  font-family: -apple-system, serif;
-  font-size: x-large;
-  justify-content: left;
-  color: dimgrey !important;
-  backdrop-filter: drop-shadow(10px 10px 2px black);
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: left;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
 .navFooterText {
-  font-family: -apple-system, serif;
-  font-size: x-large;
-  color: dimgrey !important;
-  backdrop-filter: drop-shadow(10px 10px 2px black);
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
 .navFooterText:hover, .navItemText:focus {
-  filter: brightness(70%);
+    filter: brightness(70%);
 }
 
 .FooterHeader {
-  font-family: -apple-system, serif;
-  color: dimgrey !important;
-  backdrop-filter: drop-shadow(10px 10px 2px black);
-  filter: brightness(90%);
+    font-family: -apple-system, serif;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+    filter: brightness(90%);
 }
 
 .profileCard {
-  justify-content: center;
-  margin: auto;
-  overflow-x: hidden;
-  width: 50%;
+    justify-content: center;
+    margin: auto;
+    overflow-x: hidden;
+    width: 50%;
 }
 
 .card {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: hidden;
-  width: 100%;
-  padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 20px;
 }

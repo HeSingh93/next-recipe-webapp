@@ -1,7 +1,7 @@
-import { Row, Col, ListGroup,} from 'react-bootstrap';
+import React, {useContext} from "react";
+import {Row, Col, ListGroup,} from 'react-bootstrap';
 import styles from '../styles/generic.module.css';
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
-import React, {useContext} from "react";
 import Category from "../components/Category/Category";
 import SearchItem from "./SearchItem";
 import AppContext from "../Context/ContextIndex";
@@ -49,7 +49,7 @@ export default function Home() {
             </Col>
             <Col md={"auto"}>
               {mealList()}
-          <Footer/>
+              <Footer/>
             </Col>
             <Col>
             </Col>
