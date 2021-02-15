@@ -14,7 +14,6 @@ const Category = () => {
     const {data} = await axios.get(API_URL);
     setCategoryData(data)
     setLoading(false);
-    console.log("DATA", data)
   }
 
   const displayCategories = () => {

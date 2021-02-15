@@ -18,11 +18,9 @@ function Recipe() {
 
   const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
   const fetchRecipeById = async () => {
-    console.log("Making call to: ", `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`)
     const {data} = await axios.get(API_URL);
     setRecipeData(data)
     setLoading(false);
-    console.log("Returned with data", data)
   }
 
   const displayTitle = () => {
@@ -150,26 +148,23 @@ function Recipe() {
             <Row>
               <Col sm={12} md={6} xl={5}>
                 <h1>{displayTitle()}</h1>
-                <Container md className={style.card}>
-                  <Card class="mx-auto w-100"
-                        className={style.card}>
-                    <Card.Body class="p-1">
-                      <Row class="d-flex justify-content-center">
-                        <Col>
-                          <BsClockFill/>
-                          <h6><strong>60 min</strong></h6>
-                        </Col>
-                        <Col>
-                          <BsFillBarChartFill/>
-                          <h6><strong>Medium</strong></h6>
-                        </Col>
-                        <Col>
-                          <GoChecklist/>
-                          <h6><strong>Ingredients: {filteredIngredientArray.length}</strong></h6>
-                        </Col>
-                      </Row>
-                    </Card.Body>
-                  </Card>
+                <Container className={style.card}>
+                  <Card.Body>
+                    <Row class="d-flex justify-content-center">
+                      <Col className="text-center">
+                        <BsClockFill/>
+                        <h6><strong>60 min</strong></h6>
+                      </Col>
+                      <Col className="text-center">
+                        <BsFillBarChartFill/>
+                        <h6><strong>Medium</strong></h6>
+                      </Col>
+                      <Col className="text-center">
+                        <GoChecklist/>
+                        <h6><strong>Ingredients: {filteredIngredientArray.length}</strong></h6>
+                      </Col>
+                    </Row>
+                  </Card.Body>
                 </Container>
                 <Card.Text className={style.text}>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -201,10 +196,11 @@ function Recipe() {
           </Container>
           <Card class={"mx-auto pl-4 border"}>
             <footer id={"SUGGESTED"}>
-              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested recipes</h2>
+              <h2 className={` p-3 ${styles.FooterHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested
+                recipes</h2>
               <div>
                 <Row className={styles.suggested}>
-                  <Col >
+                  <Col>
                     <Carousel interval={4000}>
                       <Carousel.Item>
                         <SuggestedMeal/>

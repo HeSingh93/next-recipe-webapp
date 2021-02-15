@@ -10,14 +10,18 @@ function Ingredients({ingredients, measure}) {
 
   return (
       <Container className={style.container}>
-        <h3 className={style.header}><strong>Ingredients</strong></h3>
-        <Row className={style.row}>
-          <ListGroup variant="flush" className={style.listgroup}>
-            {mergedArray.map(amount =>
-                <ListGroupItem >{amount}</ListGroupItem>
-            )}
-          </ListGroup>
-        </Row>
+        <div>
+          <h3 className={style.header}>Ingredients</h3>
+        </div>
+        <div className="d-flex justify-content-center text-center">
+          <Row>
+            <ListGroup variant="flush">
+              {mergedArray.map(amount =>
+                  <ListGroupItem>{amount}</ListGroupItem>
+              )}
+            </ListGroup>
+          </Row>
+        </div>
       </Container>
   )
 }
