@@ -1,46 +1,37 @@
-import { useState } from "react";
-import Star from "react-star-ratings/build/star";
+import React, {useState, useEffect} from "react";
+import {FaStar} from "react-icons/fa";
+import style from './Rating.module.css';
 
-// Requirements:
-//   1) The initial stars should be displayed
-//   2) When the user enters the area, the same red color shows how many stars, and follows the user's mouse movement
-//   3) When the user clicks the number of stars, the number of stars and rating becomes this new rating
-//   4) If the user moves away and moves back in, now the user should be able to alter the rating again
+const Rating = (recipeTitle) => {
+  const [rating, setRating] = useState(null);
 
-export default function StarRating({ numTotalStars = 5, initialRating = 0 }) {
-  const [numSelectedStars, setNumSelectedStars] = useState(initialRating);
-  const [numHoveringStars, setNumHoveringStars] = useState(null);
-
-  const [isUserHovering, setIsUserHovering] = useState(false);
-
-  function getColor(isUserHovering, i, numSelectedStars, numHoveringStars) {
-    const threshold = isUserHovering ? numHoveringStars : numSelectedStars;
-    return i < threshold ? "red" : "grey";
-  }
+  useEffect(() => {
+    const json = JSON.stringify(recipeTitle);
+    const jsonRating = JSON.stringify(rating);
+    if (rating !== null) {
+      localStorage.setItem(json, jsonRating);
+    }
+  }, [recipeTitle, rating])
 
   return (
-      <div className="star-rating">
-        <div
-            onMouseEnter={() => setIsUserHovering(true)}
-            onMouseLeave={() => setIsUserHovering(false)}
-        >
-          {Array.from({ length: numTotalStars }).map((e, i) => (
-              <Star
-                  key={i}
-                  color={getColor(
-                      isUserHovering,
-                      i,
-                      numSelectedStars,
-                      numHoveringStars
-                  )}
-                  handleSelect={() => setNumSelectedStars(i + 1)}
-                  handleHover={() => setNumHoveringStars(i + 1)}
-              />
-          ))}
-        </div>
-        <div className="label">rating {numSelectedStars}</div>
-      </div>
-  );
-}
+      <div>
+        {[...Array(5)].map((star, i) => {
+          const ratingValue = i + 1;
+          return <label>
+            <input className={style.input}
+                   type="radio"
+                   name="rating"
+                   value={ratingValue}
+                   onClick={() => setRating(ratingValue)}
+            />
 
-export { StarRating };
+            <FaStar className={style.star}
+                    color={ratingValue <= (rating) ? "#F15025" : "#E4E5E9"}
+                    size={25}
+            />
+          </label>
+        })}
+      </div>
+  )
+}
+export default Rating;

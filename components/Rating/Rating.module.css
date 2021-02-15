@@ -1,12 +1,15 @@
+.Rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.input[type="radio"] {
+    display: none;
+}
+
 .star {
-    height: 1.5em;
-    width: 1.5em;
-}
-
-.flex {
-    display:flex;
-}
-
-.cursorPointer {
     cursor: pointer;
+    transition: color 200ms;
 }
