@@ -8,5 +8,14 @@
         width: 287px;
         height: 300px;
     }
+    .container {
+        display: none;
+    }
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }

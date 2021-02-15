@@ -184,8 +184,8 @@ function Recipe() {
             <footer id={"SUGGESTED"}>
               <h2 className={` p-3 ${styles.genericHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested
                 recipes</h2>
-              <div>
-                <Row className={styles.suggested}>
+              <div className={styles.suggested}>
+                <Row >
                   <Col>
                     <Carousel interval={4000}>
                       <Carousel.Item>
@@ -200,10 +200,10 @@ function Recipe() {
                     </Carousel>
                   </Col>
                 </Row>
-                <Row className={"d-flex justify-content-center"}>
-                  <a className={"text-center"} href="#Banner"><h3 className={styles.genericText}> Go to top</h3></a>
-                </Row>
               </div>
+              <Row className={"d-flex justify-content-center"}>
+                <a className={"text-center"} href="#Banner"><h3 className={styles.genericText}> Go to top</h3></a>
+              </Row>
             </footer>
           </Card>
         </Container>
