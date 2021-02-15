@@ -1,5 +1,5 @@
 import {Image} from "react-bootstrap";
-import styles from '../../styles/mainPage.module.css';
+import styles from '../../styles/generic.module.css';
 
 function MainRecipePlaceHolder() {
   return (<Image

@@ -1,5 +1,6 @@
 import {Container, Row, Col, Nav, Navbar, ListGroup, Card} from 'react-bootstrap';
-import styles from '../styles/mainPage.module.css';
+import styles from '../styles/generic.module.css';
+import searchbarStyle from '../components/Search/Search.module.css'
 import Logo from "../public/js/Logo";
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import React, {useContext} from "react";
@@ -64,14 +65,14 @@ export default function Home() {
                 </Navbar>
               </Row>
               <Row className={styles.centerAlignment}>
-                <SearchFunction className={styles.searchBar}/>
+                <SearchFunction className={searchbarStyle.searchBar}/>
               </Row>
             </div>
           </div>
         </div>
         <div>
           <Row noGutters={true}>
-            <Col md={3}>
+            <Col md={12} lg={3}>
               <Category/>
             </Col>
             <Col md={"auto"}>

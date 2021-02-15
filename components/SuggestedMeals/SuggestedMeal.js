@@ -1,6 +1,6 @@
 import {Card, Col, Container, Image, Row} from "react-bootstrap";
 import style from "../MainRecipeFeed/MainRecipeFeed.module.css";
-import styles from "../../styles/mainPage.module.css";
+import styles from "../../styles/generic.module.css";
 import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import AppContext from "../../Context/ContextIndex";

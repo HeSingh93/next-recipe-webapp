@@ -5,11 +5,12 @@ import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel} from 'react
 import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
 import {GoChecklist} from "react-icons/go";
 import style from "../styles/Recipe.module.css";
-import styles from "../styles/mainPage.module.css";
+import styles from "../styles/generic.module.css";
 import Ingredients from "../components/Ingredients/Ingredients";
 import HowToDo from "../components/HowToDo/HowToDo";
 import Logo from "../public/js/Logo";
 import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
+import Header from "../components/Header/Header";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
@@ -127,6 +128,9 @@ function Recipe() {
         <div className={style.indexContainer}>
           <div id="Banner" className={style.bannerContainer}>
             <div className={style.bannerImage}>
+              <Row className={styles.rightAlignment}>
+                <Header/>
+              </Row>
               <div className={style.navContainer}>
                 <Row className={style.centerAlignment}><Logo/></Row>
                 <Row className={style.centerAlignment}>

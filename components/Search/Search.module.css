@@ -1,0 +1,47 @@
+.searchBar {
+  color: white;
+  background: transparent;
+  border-radius: 0.7em;
+  font-weight: bold;
+  font-family: Arial, serif;
+  padding-inline: 7px;
+  appearance: none;
+  border: 0;
+  outline: none;
+  padding-top: 4px;
+  padding-left: 6px;
+  font-size: large;
+}
+
+.searchBarContainer {
+  color: white;
+  background: transparent;
+  border-radius: 0.7em;
+  border: 1px;
+  box-shadow: 1px 1px 3px 2px rgba(226, 226, 226, 0.75);
+  font-weight: bold;
+  padding-inline: 7px;
+}
+
+.searchBarIcon {
+  color: #F15025;
+}
+
+.searchBarIcon:hover {
+  color: #F87B5B;
+}
+
+.searchBar:hover, .searchBar:focus {
+  filter: brightness(70%);
+}
+
+.searchBarSuggestion {
+  list-style: none;
+  overflow: hidden;
+  margin: 9px 0 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}

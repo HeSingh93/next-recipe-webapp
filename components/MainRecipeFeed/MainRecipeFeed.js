@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Container, Col, Row, Image} from "react-bootstrap";
 import axios from "axios";
 import style from './MainRecipeFeed.module.css';
-import styles from "../../styles/mainPage.module.css";
+import styles from "../../styles/generic.module.css";
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
@@ -94,7 +94,7 @@ const MainRecipeFeed = () => {
             <Col md={"auto"}>
               <Image className={style.image} alt="Image of meal" src={image}/>
             </Col>
-            <Col sm={6}>
+            <Col sm={6} >
               <>{displayInfo()}</>
               <div className="d-flex">
                 {[1, 2, 3, 4, 5].map((index) => {

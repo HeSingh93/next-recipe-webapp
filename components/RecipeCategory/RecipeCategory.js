@@ -1,8 +1,9 @@
 import React from "react";
 import {Row, Navbar, Nav, Container, Col} from "react-bootstrap";
-import styles from '../../styles/mainPage.module.css'
+import styles from '../../styles/generic.module.css'
 import Logo from "../../public/js/Logo";
 import Category from "../Category/Category";
+import Header from "../Header/Header";
 
 const RecipeCategory = ({category}) => {
   return (
@@ -10,6 +11,9 @@ const RecipeCategory = ({category}) => {
         <div className={styles.indexContainer}>
           <div id="Banner" className={styles.bannerContainer}>
             <div className={styles.bannerImage}>
+              <Row className={styles.rightAlignment}>
+                <Header/>
+              </Row>
               <div className={styles.navContainer}>
                 <Row className={styles.centerAlignment}>
                   <Logo/>

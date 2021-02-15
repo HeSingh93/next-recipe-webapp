@@ -1,6 +1,8 @@
 
 .container {
-
+    border: white;
+    border-radius: 0 0 0.6rem 0.6rem;
+    overflow: auto;
 }
 
 .loading,
@@ -38,13 +40,9 @@
     font-family: -apple-system, serif;
     font-size: large;
     justify-content: left;
-    color: grey !important;
+    color: white !important;
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }
-
-/*.signedIn {
-    left: 3.8rem;
-}*/
 
 .avatar {
     border-radius: 2rem;
@@ -54,6 +52,7 @@
     background-color: white;
     background-size: cover;
     border: 2px solid #ddd;
+    justify-content: flex-start;
 }
 
 .signinButton,
@@ -72,7 +71,7 @@
     font-family: -apple-system, serif;
     font-size: x-large;
     justify-content: left;
-    color: dimgrey !important;
+    color: lightgrey !important;
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 
@@ -84,7 +83,7 @@
     font-family: -apple-system, serif;
     font-size: x-large;
     justify-content: left;
-    color: dimgrey !important;
+    color: lightgrey !important;
     backdrop-filter: drop-shadow(10px 10px 2px black);
 }
 

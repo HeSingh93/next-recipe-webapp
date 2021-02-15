@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import axios from "axios";
-import styles from '../../styles/mainPage.module.css'
+import styles from '../Search/Search.module.css'
 import {Row} from "react-bootstrap";
 import AppContext from "../../Context/ContextIndex";
 
