@@ -12,7 +12,7 @@ export default function index() {
 
   if (loading) return null
 
-  if (!loading && session) return <Home/>
+  if (!loading && session) return Home();
 
   return (
       <div className={genericStyles.indexContainer}>

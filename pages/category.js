@@ -6,6 +6,7 @@ import styles from '../styles/Categories.module.css'
 import RecipeCategory from "../components/RecipeCategory/RecipeCategory";
 import {useSession} from "next-auth/client";
 import Unauthenticated from "../components/Login/Unauthenticated";
+import index from "./index";
 
 const Category = () => {
   const [filteredData, setFilteredData] = useState([]);
@@ -75,7 +76,7 @@ const Category = () => {
   }, [router])
 
   if (loading) return null
-  if (!loading && !session) return <index/>
+  if (!loading && !session) return index()
 
 
   return (

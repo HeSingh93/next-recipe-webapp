@@ -12,6 +12,7 @@ import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 import Header from "../components/Header/Header";
 import Rating from "../components/Rating/Rating";
 import {useSession} from "next-auth/client";
+import index from './index'
 import Unauthenticated from "../components/Login/Unauthenticated";
 
 function Recipe() {
@@ -73,7 +74,7 @@ function Recipe() {
   }, [router]);
 
   if (loading) return null
-  if (!loading && !session) return <index/>
+  if (!loading && !session) return index()
 
   const ingredientArray = [];
   recipeData.meals?.map(ingredients => {

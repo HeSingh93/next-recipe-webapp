@@ -7,6 +7,7 @@ import SearchItem from "./SearchItem";
 import AppContext from "../Context/ContextIndex";
 import Header from "../components/Header/Header";
 import { useSession} from 'next-auth/client'
+import index from "./index";
 
 export default function Home() {
   let {query} = useContext(AppContext);
@@ -14,7 +15,7 @@ export default function Home() {
 
   if (loading) return null
 
-  if (!loading && !session) return <index/>
+  if (!loading && !session) return index()
 
   const mealList = () => {
     if (query.length > 1) {
