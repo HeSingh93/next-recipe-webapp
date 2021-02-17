@@ -11,7 +11,7 @@ export default function Footer() {
         <footer id={"CONTACTS"}>
           <div>
             <Row className={genericStyle.centerAlignment}>
-              <h2 className={` p-3 ${styles.FooterHeader}`}>CONTACT</h2>
+              <h4 className={` p-3 ${styles.FooterHeader}`}>Meet the developers</h4>
             </Row>
             <Container>
               <Row>
