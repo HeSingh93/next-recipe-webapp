@@ -38,6 +38,19 @@
     cursor: pointer;
 }
 
+.categoryLabel {
+    color: dimgrey !important;
+    font-family: -apple-system, serif;
+    font-size: 40px;
+    text-align: center;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.categoryLabel:hover {
+    cursor: pointer;
+    color: #F15025;
+}
+
 .cardBody {
     display: flex;
 }

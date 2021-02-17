@@ -18,9 +18,15 @@ const Category = () => {
   const displayCategories = () => {
     if (!loading) {
       return (
-          <Container>{categoryData.categories?.map(category => <Card.Body
-              key={category}><a className={style.text}
-                                href={`/category?cat=${category.strCategory}`}>{category.strCategory}</a></Card.Body>)}</Container>
+          <Container>{categoryData.categories?.map(category =>
+              <Card.Body
+                  key={category}>
+                <a className={style.text} href={`/category?cat=${category.strCategory}`}>
+                  {category.strCategory}
+                </a>
+              </Card.Body>
+          )}
+          </Container>
       )
     }
   }

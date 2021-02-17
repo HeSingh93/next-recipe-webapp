@@ -17,7 +17,7 @@ export default function Header() {
           <div>
             <Row className={styles.centerAlignment}><Logo/></Row>
             <Row className={styles.centerAlignment}>
-              <Navbar collapseOnSelect expand={"md | lg | xl"}>
+              <Navbar collapseOnSelect expand={"sm | md | lg | xl"}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav.Link className={styles.navItemText} href="/">HOME</Nav.Link>

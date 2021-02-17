@@ -17,18 +17,16 @@ export default function Footer() {
               <Row>
                 <Col className={styles.card} sm={6}>
                   <Card class="mx-auto border p-3 " className={styles.profileCard}>
-                    <Nav fill>
+                    <Nav fill={true}>
                       <div className={"mr-auto"}>
-                        <Nav.Item>
-                          <Nav.Link className={styles.navFooterText}
-                                    href="https://github.com/HeSingh93">Herman Singh
-                          </Nav.Link>
-                        </Nav.Item>
+                        <Nav.Link className={styles.navFooterText}
+                                  href="https://github.com/HeSingh93">Herman Singh
+                        </Nav.Link>
                       </div>
                     </Nav>
                     <Row className={`mr-auto ${styles.card}`}><HermanProfile/></Row>
                     <Card className={"mx-auto p-2"}>
-                      <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
+                      <h5 className={`mr-auto ${styles.FooterText}`}> About </h5>
                       <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
                         Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus
@@ -40,16 +38,14 @@ export default function Footer() {
                   <Card class="mx-auto border p-3" className={styles.profileCard}>
                     <Nav fill={true}>
                       <div className={genericStyle.centerAlignment}>
-                        <Nav.Item>
-                          <Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus
-                            Nordenstein
-                          </Nav.Link>
-                        </Nav.Item>
+                        <Nav.Link className={styles.navFooterText} href="https://github.com/hamnord">Hampus
+                          Nordenstein
+                        </Nav.Link>
                       </div>
                     </Nav>
                     <Row className={`mr-auto ${styles.card}`}><HampusProfile/></Row>
                     <Card className={"mx-auto p-2"}>
-                      <h5 className={`mr-auto ${styles.FooterText}`}> About: </h5>
+                      <h5 className={`mr-auto ${styles.FooterText}`}> About </h5>
                       <Card.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aspernatur debitis dignissimos ipsam nemo odit optio quod tenetur vero!
                         Assumenda consectetur dolores ipsum laborum nisi quae repudiandae sed sit temporibus

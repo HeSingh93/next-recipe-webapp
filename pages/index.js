@@ -47,11 +47,11 @@ export default function Home() {
             <Col md={12} lg={3}>
               <Category/>
             </Col>
-            <Col md={"auto"}>
+            <Col md={"auto"} lg={6}>
               {mealList()}
               <Footer/>
             </Col>
-            <Col>
+            <Col lg={3}>
             </Col>
           </Row>
         </div>

@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {useRouter} from "next/router";
 import axios from "axios";
-import {Container, Row, Col, Card, Image, Navbar, NavLink, Carousel} from 'react-bootstrap';
+import {Container, Row, Col, Card, Image, Carousel} from 'react-bootstrap';
 import {BsClockFill, BsFillBarChartFill} from "react-icons/bs";
 import {GoChecklist} from "react-icons/go";
 import style from "../styles/Recipe.module.css";
 import styles from "../styles/generic.module.css";
 import Ingredients from "../components/Ingredients/Ingredients";
 import HowToDo from "../components/HowToDo/HowToDo";
-import Logo from "../public/js/Logo";
 import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
-import Login from "../components/Login/Login";
 import Header from "../components/Header/Header";
+import Rating from "../components/Rating/Rating";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
@@ -28,6 +27,12 @@ function Recipe() {
   const displayTitle = () => {
     if (!loading) {
       return <h1 className={style.header}>{recipeData?.meals[0].strMeal}</h1>
+    }
+  }
+
+  const saveRating = () => {
+    if (!loading) {
+      return recipeData?.meals[0].strMeal
     }
   }
 
@@ -152,6 +157,9 @@ function Recipe() {
                     </Row>
                   </Card.Body>
                 </Container>
+                <Row className={"pt-2 d-flex justify-content-center"}>
+                  <Rating recipeTitle={saveRating()}/>
+                </Row>
                 <Card.Text className={style.text}>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Animi aspernatur, beatae corporis culpa delectus dolorum explicabo illo incidunt labore non
@@ -185,7 +193,7 @@ function Recipe() {
               <h2 className={` p-3 ${styles.genericHeader} ${styles.centerAlignment} ${styles.suggested}`}>Suggested
                 recipes</h2>
               <div className={styles.suggested}>
-                <Row >
+                <Row>
                   <Col>
                     <Carousel interval={4000}>
                       <Carousel.Item>

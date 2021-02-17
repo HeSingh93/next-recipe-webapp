@@ -14,7 +14,7 @@
 }
 
 .header:hover {
-    color: #F15025;
+    color: #F15025 !important;
     cursor: pointer;
 }
 
@@ -28,6 +28,7 @@
 
 .text:hover {
     cursor: pointer;
+    color: #F15025 !important;
 }
 
 .accToggle {

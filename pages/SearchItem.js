@@ -16,7 +16,7 @@ export default function SearchItem() {
                   <div>
                     <Row xs={1} md={2}>
                       <Col md={"auto"} sm={"auto"}>
-                        <Image className={style.image} alt="Image of meal" src={meals.strMealThumb}/>
+                        <Image className={style.searchedImage} alt="Image of meal" src={meals.strMealThumb}/>
                       </Col>
                       <Col sm={6}>
                         <a className={styles.genericText} href={`/recipe?id=${meals.idMeal}`}><h2>{meals.strMeal}</h2>
