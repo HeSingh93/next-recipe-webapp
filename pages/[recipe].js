@@ -11,11 +11,14 @@ import HowToDo from "../components/HowToDo/HowToDo";
 import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 import Header from "../components/Header/Header";
 import Rating from "../components/Rating/Rating";
+import {useSession} from "next-auth/client";
+import Unauthenticated from "../components/Login/Unauthenticated";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const router = useRouter();
+  const [ session, loading ] = useSession();
 
   const API_URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${router.query.id}`
   const fetchRecipeById = async () => {
@@ -25,31 +28,31 @@ function Recipe() {
   }
 
   const displayTitle = () => {
-    if (!loading) {
+    if (!isLoading) {
       return <h1 className={style.header}>{recipeData?.meals[0].strMeal}</h1>
     }
   }
 
   const saveRating = () => {
-    if (!loading) {
+    if (!isLoading) {
       return recipeData?.meals[0].strMeal
     }
   }
 
   const displayInstructions = () => {
-    if (!loading) {
+    if (!isLoading) {
       return recipeData.meals[0].strInstructions
     }
   }
 
   const displayImage = () => {
-    if (!loading) {
+    if (!isLoading) {
       return <Image className={style.image} fluid alt="image of meal" src={recipeData.meals[0].strMealThumb}/>
     }
   }
 
   const displayArea = () => {
-    if (!loading) {
+    if (!isLoading) {
       const MAP_URL = `https://maps.google.com/maps?q=${recipeData?.meals[0]?.strArea}&t=&z=13&ie=UTF8&iwloc=&output=embed`
       return (
           <div className="mapouter">
@@ -68,6 +71,9 @@ function Recipe() {
       fetchRecipeById()
     }
   }, [router]);
+
+  if (loading) return null
+  if (!loading && !session) return <index/>
 
   const ingredientArray = [];
   recipeData.meals?.map(ingredients => {

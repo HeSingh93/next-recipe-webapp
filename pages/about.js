@@ -1,12 +1,12 @@
+import styles from "../components/Header/Header.module.css";
+import {Card, Nav, Navbar, Row} from "react-bootstrap";
+import Login from "../components/Login/Login";
+import Logo from "../public/js/Logo";
 import React from "react";
-import styles from '../Header/Header.module.css'
-import {Nav, Navbar, Row} from "react-bootstrap";
-import Login from "../Login/Login";
-import Logo from "../../public/js/Logo";
-import SearchFunction from "../Search/Search";
-import searchbarStyle from "../Search/Search.module.css";
+import {useSession} from "next-auth/client";
 
-export default function Header() {
+export default function About () {
+  const [ session, loading ] = useSession()
 
   return (
       <div id="Banner" className={styles.bannerContainer}>
@@ -20,17 +20,18 @@ export default function Header() {
               <Navbar collapseOnSelect expand={"sm | md | lg | xl"}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav.Link className={styles.navItemText} href="/home">HOME</Nav.Link>
+                  <Nav.Link className={styles.navItemText} href={session ? "/home" : "/"}>HOME</Nav.Link>
+
                   <Nav.Link className={styles.navItemText} href="/about">ABOUT</Nav.Link>
                   <Nav.Link className={styles.navItemText} href="/contact">CONTACT</Nav.Link>
                 </Navbar.Collapse>
               </Navbar>
             </Row>
-            <Row className={styles.centerAlignment}>
-              <SearchFunction className={searchbarStyle.searchBar}/>
-            </Row>
           </div>
         </div>
+        <Card>
+          <p>ABOUT</p>
+        </Card>
       </div>
   )
 }

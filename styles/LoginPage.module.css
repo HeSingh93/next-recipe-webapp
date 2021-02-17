@@ -1,0 +1,36 @@
+.bannerContainer {
+  width: 100%;
+  height: 400px;
+}
+
+.bannerImage {
+  filter: brightness(75%);
+  background-image: url('../public/images/3.jpg');
+  background-size: 100% 670px;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.centerAlignment {
+  display: flex;
+  justify-content: center;
+}
+.rightAlignment {
+  display: flex;
+  justify-content: right;
+  padding-bottom: -1000px;
+}
+
+.navItemText {
+  font-family: -apple-system, serif;
+  font-size: x-large;
+  justify-content: left;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.navItemText:hover, .navItemText:focus {
+  filter: brightness(70%);
+}

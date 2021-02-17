@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
-
 const options = {
   providers: [
     /*  Providers.Email({
@@ -12,10 +11,10 @@ const options = {
       clientId: process.env.NEXTAUTH_GOOGLE_ID,
       clientSecret: process.env.NEXTAUTH_GOOGLE_SECRET,
     }),
- /*   Providers.Facebook({
-      clientId: process.env.NEXTAUTH_FACEBOOK_ID,
-      clientSecret: process.env.NEXTAUTH_FACEBOOK_SECRET,
-    }),*/
+    /*   Providers.Facebook({
+         clientId: process.env.NEXTAUTH_FACEBOOK_ID,
+         clientSecret: process.env.NEXTAUTH_FACEBOOK_SECRET,
+       }),*/
     Providers.GitHub({
       clientId: process.env.NEXTAUTH_GITHUB_ID,
       clientSecret: process.env.NEXTAUTH_GITHUB_SECRET,
@@ -25,18 +24,18 @@ const options = {
   database: process.env.NEXTAUTH_DATABASE_URL,
 
   session: {
-/*    jwt: true,
-    maxAge: 30 * 24 * 60 * 60,
-    updateAge: 24 * 60 * 60,*/
+    /*    jwt: true,
+        maxAge: 30 * 24 * 60 * 60,
+        updateAge: 24 * 60 * 60,*/
   },
 
   jwt: {
- /*   secret: '7b06646b67d81168ddd1a6fa82f420a7',
-    encryption: true,
-    encode: async ({secret, token, maxAge}) => {
-    },
-    decode: async ({secret, token, maxAge}) => {
-    },*/
+    /*   secret: '7b06646b67d81168ddd1a6fa82f420a7',
+       encryption: true,
+       encode: async ({secret, token, maxAge}) => {
+       },
+       decode: async ({secret, token, maxAge}) => {
+       },*/
   },
 
   callbacks: {
@@ -50,6 +49,7 @@ const options = {
 
       }
     },
+
     async session(session, token) {
       if (token?.accessToken) {
         session.accessToken = token.accessToken
@@ -70,6 +70,7 @@ const options = {
     }
   },
 
+
   pages: {
     //signIn: '/api/auth/signin',
     //signOut: '/api/auth/signout',
@@ -78,18 +79,18 @@ const options = {
     //newUser: null // If set, new users will be directed here on first sign in
   },
   events: {
-    async signIn(message) { /* on successful sign in */
+ /*   async signIn(message) { /!* on successful sign in *!/
     },
-    async signOut(message) { /* on signout */
+    async signOut(message) { /!* on signout *!/
     },
-    async createUser(message) { /* user created */
+    async createUser(message) { /!* user created *!/
     },
-    async linkAccount(message) { /* account linked to a user */
+    async linkAccount(message) { /!* account linked to a user *!/
     },
-    async session(message) { /* session is active */
+    async session(message) { /!* session is active *!/
     },
-    async error(message) { /* error in authentication flow */
-    }
+    async error(message) { /!* error in authentication flow *!/
+    }*/
   },
 
   // Additional options

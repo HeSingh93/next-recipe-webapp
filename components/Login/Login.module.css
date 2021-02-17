@@ -130,3 +130,19 @@
         filter: brightness(70%);
     }
 }
+.navItemText {
+    font-family: -apple-system, serif;
+    font-size: x-large;
+    justify-content: center;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.header {
+    font-family: -apple-system, serif;
+    font-size: xx-large;
+    padding-left: 45px;
+    justify-content: center;
+    color: dimgrey !important;
+    backdrop-filter: drop-shadow(10px 10px 2px black);
+}

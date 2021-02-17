@@ -4,10 +4,13 @@ import {useRouter} from "next/router";
 import {Card, Col, Row} from "react-bootstrap";
 import styles from '../styles/Categories.module.css'
 import RecipeCategory from "../components/RecipeCategory/RecipeCategory";
+import {useSession} from "next-auth/client";
+import Unauthenticated from "../components/Login/Unauthenticated";
 
 const Category = () => {
   const [filteredData, setFilteredData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [ session, loading ] = useSession()
 
   const router = useRouter();
   let query = router.query
@@ -26,7 +29,7 @@ const Category = () => {
   }
 
   const displayMeal = () => {
-    if (!loading) {
+    if (!isLoading) {
       return (
           <div>
             {filteredData.meals?.map(meal =>
@@ -65,10 +68,14 @@ const Category = () => {
   }
 
   useEffect(() => {
+
     if (router.query !== undefined) {
       fetchSpecificCategory()
     }
   }, [router])
+
+  if (loading) return null
+  if (!loading && !session) return <index/>
 
 
   return (
