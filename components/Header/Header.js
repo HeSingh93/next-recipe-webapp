@@ -22,7 +22,7 @@ export default function Header() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav.Link className={styles.navItemText} href="/">HOME</Nav.Link>
                   <Nav.Link className={styles.navItemText} href="/">ABOUT</Nav.Link>
-                  <Nav.Link className={styles.navItemText} href="#CONTACTS">CONTACTS</Nav.Link>
+                  <Nav.Link className={styles.navItemText} href="/contact">CONTACT</Nav.Link>
                 </Navbar.Collapse>
               </Navbar>
             </Row>

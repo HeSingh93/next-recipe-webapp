@@ -6,9 +6,8 @@ const Rating = (recipeTitle) => {
   const [rating, setRating] = useState(null);
 
   useEffect(() => {
-    const jsonTitle = JSON.stringify(recipeTitle);
     if (rating !== null) {
-      localStorage.setItem(jsonTitle, rating);
+      localStorage.setItem(recipeTitle.recipeTitle, rating);
     }
   }, [recipeTitle, rating])
 
