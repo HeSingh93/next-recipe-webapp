@@ -1,6 +1,5 @@
-import styles from "../components/Header/Header.module.css";
 import genericStyles from '../styles/generic.module.css'
-import {Card, Container, Nav, Navbar, Row} from "react-bootstrap";
+import {Card, Container,} from "react-bootstrap";
 import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";

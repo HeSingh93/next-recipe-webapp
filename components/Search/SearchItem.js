@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import {Col, Container, Image, Row, Card} from "react-bootstrap";
-import AppContext from "../Context/ContextIndex";
-import style from "../components/MainRecipeFeed/MainRecipeFeed.module.css";
-import styles from "../styles/generic.module.css";
+import AppContext from "../../Context/ContextIndex";
+import style from "../MainRecipeFeed/MainRecipeFeed.module.css";
+import styles from "../../styles/generic.module.css";
 
 export default function SearchItem() {
   let {recipes} = useContext(AppContext);

@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
-import {Card, Col, Nav, Row} from "react-bootstrap";
+import {Card, Col, Row} from "react-bootstrap";
 import styles from '../styles/Categories.module.css'
 import RecipeCategory from "../components/RecipeCategory/RecipeCategory";
 import {useSession} from "next-auth/client";
 import index from "./index";
-import genericStyle from "../styles/generic.module.css";
 
 const Category = () => {
   const [filteredData, setFilteredData] = useState([]);

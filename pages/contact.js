@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import style from '../styles/generic.module.css'
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
 export default function contact() {
   const [validated, setValidated] = useState(false);

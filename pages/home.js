@@ -4,7 +4,7 @@ import styles from '../styles/generic.module.css';
 import headerStyle from '../components/Header/header.module.css'
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import Category from "../components/Category/Category";
-import SearchItem from "./SearchItem";
+import SearchItem from "../components/Search/SearchItem";
 import AppContext from "../Context/ContextIndex";
 import { useSession} from 'next-auth/client'
 import index from "./index";
@@ -12,7 +12,6 @@ import Login from "../components/Login/Login";
 import Logo from "../public/js/Logo";
 import SearchFunction from "../components/Search/Search";
 import searchbarStyle from "../components/Search/Search.module.css";
-import genericStyle from "../styles/generic.module.css";
 
 export default function Home() {
   let {query} = useContext(AppContext);
