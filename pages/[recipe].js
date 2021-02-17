@@ -12,7 +12,6 @@ import SuggestedMeal from "../components/SuggestedMeals/SuggestedMeal";
 import Header from "../components/Header/Header";
 import Rating from "../components/Rating/Rating";
 import {useSession} from "next-auth/client";
-import Unauthenticated from "../components/Login/Unauthenticated";
 
 function Recipe() {
   const [recipeData, setRecipeData] = useState([]);
