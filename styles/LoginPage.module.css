@@ -3,6 +3,10 @@
   height: 400px;
 }
 
+.indexContainer {
+  overflow-x: hidden;
+}
+
 .bannerImage {
   filter: brightness(75%);
   background-image: url('../public/images/3.jpg');
@@ -33,4 +37,23 @@
 
 .navItemText:hover, .navItemText:focus {
   filter: brightness(70%);
+}
+
+.genericText {
+  display: flex;
+  font-family: -apple-system, serif;
+  justify-content: center;
+  margin: auto;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+}
+
+.genericHeader {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-family: -apple-system, serif;
+  color: dimgrey !important;
+  backdrop-filter: drop-shadow(10px 10px 2px black);
+  filter: brightness(90%);
 }

@@ -1,5 +1,5 @@
 .searchBar {
-    color: white;
+    color: black;
     background: transparent;
     border-radius: 0.7em;
     font-weight: bold;
@@ -14,11 +14,11 @@
 }
 
 .searchBarContainer {
-    color: white;
+    color: black;
     background: transparent;
     border-radius: 0.7em;
     border: 1px;
-    box-shadow: 1px 1px 3px 2px rgba(226, 226, 226, 0.75);
+    box-shadow: 1px 1px 3px 2px black;
     font-weight: bold;
     padding-inline: 7px;
 }

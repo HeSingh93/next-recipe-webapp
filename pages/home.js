@@ -1,13 +1,18 @@
 import React, {useContext} from "react";
-import {Row, Col, ListGroup,} from 'react-bootstrap';
+import {Row, Col, ListGroup, Navbar, Nav,} from 'react-bootstrap';
 import styles from '../styles/generic.module.css';
+import headerStyle from '../components/Header/header.module.css'
 import MainRecipeFeed from "../components/MainRecipeFeed/MainRecipeFeed";
 import Category from "../components/Category/Category";
 import SearchItem from "./SearchItem";
 import AppContext from "../Context/ContextIndex";
-import Header from "../components/Header/Header";
 import { useSession} from 'next-auth/client'
 import index from "./index";
+import Login from "../components/Login/Login";
+import Logo from "../public/js/Logo";
+import SearchFunction from "../components/Search/Search";
+import searchbarStyle from "../components/Search/Search.module.css";
+import genericStyle from "../styles/generic.module.css";
 
 export default function Home() {
   let {query} = useContext(AppContext);
@@ -47,7 +52,29 @@ export default function Home() {
 
   return (
       <div className={styles.indexContainer}>
-        <Header/>
+        <div id="Banner" className={headerStyle.bannerContainer}>
+          <div className={headerStyle.bannerImage}>
+            <Row className={headerStyle.rightAlignment}>
+              <Login/>
+            </Row>
+            <div>
+              <Row className={headerStyle.centerAlignment}><Logo/></Row>
+              <Row className={headerStyle.centerAlignment}>
+                <Navbar collapseOnSelect expand={"sm | md | lg | xl"}>
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                  <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav.Link className={headerStyle.navItemText} href={session ? "/home" : "/"}>HOME</Nav.Link>
+                    <Nav.Link className={headerStyle.navItemText} href="/about">ABOUT</Nav.Link>
+                    <Nav.Link className={headerStyle.navItemText} href="/contact">CONTACT</Nav.Link>
+                  </Navbar.Collapse>
+                </Navbar>
+              </Row>
+              <Row className={styles.centerAlignment}>
+                <SearchFunction className={searchbarStyle.searchBar}/>
+              </Row>
+            </div>
+          </div>
+        </div>
         <div>
           <Row noGutters={true}>
             <Col md={12} lg={3}>
@@ -58,6 +85,9 @@ export default function Home() {
             </Col>
             <Col lg={3}>
             </Col>
+          </Row>
+          <Row className={"d-flex justify-content-center"}>
+            <a className={"text-center"} href="#Banner"><h3 className={styles.genericText}> Go to top</h3></a>
           </Row>
         </div>
       </div>
