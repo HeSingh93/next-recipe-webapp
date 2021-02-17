@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import style from '../styles/generic.module.css'
-import {Alert, Button, Card, Col, Container, Form, Row, Toast} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
@@ -16,6 +16,8 @@ export default function contact() {
     }
     setValidated(true)
   };
+
+  console.log("https://vignette.wikia.nocookie.net/joke-battles/images/4/40/18360-doge-doge-simple.jpg/revision/latest?cb=20151209161638");
 
   return (
       <div className={style.indexContainer}>
